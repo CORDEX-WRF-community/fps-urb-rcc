@@ -1,0 +1,42 @@
+&share
+ wrf_core = 'ARW',
+ max_dom = 2,
+ io_form_geogrid = 2,
+ start_date = 2019-06-01_00:00:00,
+ end_date   = 2019-06-03_00:00:00,
+ interval_seconds = 21600,
+ !nocolons = .true.,
+/
+
+&geogrid
+ parent_id              = 1, 1,  
+ parent_grid_ratio      = 1, 4, 
+ i_parent_start         = 1, 81, 
+ j_parent_start         = 1, 84,
+ dx                     = 12000,
+ dy                     = 12000,
+ e_we                   = 240, 201, 
+ e_sn                   = 190, 233, 
+ map_proj 		= 'lambert',
+ ref_lat 		= 47.3,
+ ref_lon 		= 5.2,
+ truelat1 		= 30.0,
+ truelat2 		= 60.0,
+ stand_lon 		= 18.0,
+ geog_data_res          = '30s+default', '30s+default', '30s+default', '30s+default',
+ geog_data_path         = '/share/geog/',
+ opt_geogrid_tbl_path = './'
+/
+
+&ungrib
+ out_format = 'WPS',
+ prefix = 'FILE',
+/
+
+&metgrid
+ constants_name = 'TAVGSFC',
+ fg_name = 'FILE',
+ io_form_metgrid = 2,
+/
+
+
