@@ -1,6 +1,6 @@
 # WRF-FPS-URBAN CTRL simulations #
 
-The first test control (CTRL) run is set to be performed for 7 days, 01-08.04.2020, in order to check if the simulations can run successfully by all the WRF groups and how fast. All groups should perform the run with the same setting. For that reason all the necessary files can be downloaded from this [link](https://www.dropbox.com/s/i4in7ib0suld7lp/fps_urban_file_urb3.tar?dl=0), are the description of the files are provided below.
+The first test **STAGE 0** control (CTRL) run is set to be performed for 7 days, 01-08.04.2020, in order to check if the simulations can run successfully by all the WRF groups and how fast. All groups should perform the run with the same setting. For that reason all the necessary files can be downloaded from this [link](https://www.dropbox.com/s/i4in7ib0suld7lp/fps_urban_file_urb3.tar?dl=0), are the description of the files are provided below.
 
 The zipped files necessary to perform test runs can be downloaded from here. The files included:
 1. Geo_em files created with the new Copernicus LU data and added LCZ info with w2w tool, HWSD+BUK100 soil texture data, and SPOT LAI:
@@ -21,6 +21,8 @@ The zipped files necessary to perform test runs can be downloaded from here. The
 5. namelist.input and namelist.wps, the 2 namelists necessary to run wrf and wps. The files are also available directly in the repository as well.
 
 **namelist.wps** is set to run with the newest LU Copernicus dataset (with w2w tool applied), LAI map based on SPOT satellite data, and HWSD+BUK1000 soil texture data. The outer d01 domain is defined to fit the EUR-11 CODEX domain in Lambert Conformal projection named EUR-12 (i.e. at 12 km). The inner d02 domain is PAR-3 domain centered around Paris (check [the plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/CTRL/domains_EP.png)) and which includes corners as defined in the CORDEX FPS URB-RCC simulation protocol [link](https://docs.google.com/document/d/1R4O1x67Tpr-qcEPlkzKDvJP1itoxKPbaBZO9gpIfamc/edit).
+
+![the plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/CTRL/domains_EP.png)
 
 **namelist.input** is set to run with BouLac PBL scheme (option 8) and BEM urban scheme (option 3), with hybrid vertical levels and first level set to 35m (following the WRF setting for EURO-CORDEX simulations).
 
