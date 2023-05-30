@@ -7,7 +7,7 @@ In addition, these test simulations will prepare the ground for the coordinated 
 
 ## WRF-FPS-URBAN CTRL simulations
 
-The first test **STAGE 0** control (CTRL) run is set to be performed for 7 days, 01-08.04.2020, in order to check if the simulations can run successfully by all the WRF groups and how fast. All groups should perform the run with the same setting. For that reason all the necessary files can be downloaded from this [link](https://www.dropbox.com/s/i4in7ib0suld7lp/fps_urban_file_urb3.tar?dl=0), are the description of the files are provided below.
+The first test **STAGE 0** control (CTRL) run is set to be performed for 7 days, 01-08.04.2020, in order to check if the simulations can run successfully by all the WRF groups and how fast. All groups should perform the run with the same setting. For that reason all the necessary files can be downloaded from this [link](https://meteo.unican.es/work/josipa/fps_urban_file_urb3.tar), are the description of the files are provided below.
 
 The zipped files necessary to perform test runs can be downloaded from here. The files included:
 1. Geo_em files created with the new Copernicus LU data and added LCZ info with w2w tool, HWSD+BUK100 soil texture data, and SPOT LAI:
