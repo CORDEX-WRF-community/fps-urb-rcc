@@ -29,7 +29,7 @@ The zipped files necessary to perform test runs can be downloaded from here. The
 
 **namelist.wps** is set to run with the newest LU Copernicus dataset (with w2w tool applied), LAI map based on SPOT satellite data, and HWSD+BUK1000 soil texture data. The outer d01 domain is defined to fit the EUR-11 CODEX domain in Lambert Conformal projection named EUR-12 (i.e. at 12 km). The inner d02 domain is PAR-3 domain centered around Paris (check [the plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/CTRL/domains_EP.png)) and which includes corners as defined in the CORDEX FPS URB-RCC simulation protocol [link](https://docs.google.com/document/d/1R4O1x67Tpr-qcEPlkzKDvJP1itoxKPbaBZO9gpIfamc/edit).
 
-![the plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/domains_EP.png)
+![the plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/main/domains_EP.png)
 
 **namelist.input** is set to run with BouLac PBL scheme (option 8) and BEM urban scheme (option 3), with hybrid vertical levels and first level set to 35m (following the WRF setting for EURO-CORDEX simulations).
 
