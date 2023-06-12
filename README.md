@@ -1,6 +1,6 @@
 # WRF setting for the PAR-3 nested nested into FRA-12
 
-This branch contains the namelist files for the PAR-3 nested intp FRA-12 parent domain, which coincides with the smaller parent domain proposed in the [the simulations protocol](https://docs.google.com/document/d/1R4O1x67Tpr-qcEPlkzKDvJP1itoxKPbaBZO9gpIfamc/edit):
+This branch contains the namelist files for the PAR-3 nested intp FRA-12 parent domain, which coincides with the smaller parent domain proposed in the [the simulation protocol](https://docs.google.com/document/d/1R4O1x67Tpr-qcEPlkzKDvJP1itoxKPbaBZO9gpIfamc/edit):
 
 ![The plotted domains](https://github.com/FPS-URB-RCC/WRFcoordination/blob/FRA-12/domains_FP.png)
 
