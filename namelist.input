@@ -1,0 +1,204 @@
+&time_control
+ start_year                          = 2020, 2020,
+ start_month                         = 03, 03,
+ start_day                           = 01, 01,
+ start_hour                          = 0, 0,
+ start_minute                        = 0, 0,
+ start_second                        = 0, 0,
+ end_year                            = 2020, 2020,
+ end_month                           = 09, 09,
+ end_day                             = 01, 01,
+ end_hour                            = 0, 0,
+ end_minute                          = 0, 0,
+ end_second                          = 0, 0,
+ interval_seconds                    = 21600,
+ input_from_file                     = .true., .true.,
+ fine_input_stream                   = 0, 2,
+ history_interval                    = 60, 60,
+ frames_per_outfile                  = 24, 24,
+ restart                             = .false.,
+ restart_interval                    = 1440,
+ override_restart_timers             = .true.,
+ write_hist_at_0h_rst                = .true.,
+ io_form_history                     = 2,
+ io_form_restart                     = 102, ! split restart files
+ io_form_input                       = 2,
+ io_form_boundary                    = 2,
+ auxinput4_inname                    = "wrflowinp_d<domain>",
+ auxinput4_interval                  = 360,360,
+ io_form_auxinput4                   = 2,
+ io_form_auxinput2                   = 2,
+ debug_level                         = 0,
+ diag_print                          = 0,
+ output_diagnostics                  = 1,
+ auxhist3_outname                    = "wrfxtrm_d<domain>_<date>",
+ io_form_auxhist3                    = 2,
+ auxhist3_interval                   = 1440,1440,
+ frames_per_auxhist3                 = 1000,1000,
+ auxhist23_outname                   = "wrfpress_d<domain>_<date>"
+ io_form_auxhist23                   = 2,
+ auxhist23_interval                  = 60,60,
+ frames_per_auxhist23                = 24,24,
+!iofields_filename                   = "varlist.txt","varlist.txt",
+ nocolons                            = .true., 
+! Aerosols 
+ auxinput15_inname                   = "AOD_20200301_20200901_d<domain>", 
+ auxinput15_interval                 = 1440, 1440,
+ io_form_auxinput15                  = 2,
+/
+
+&domains
+ time_step                           = 60,
+ time_step_fract_num                 = 0,
+ time_step_fract_den                 = 1,
+ max_dom                             = 2,
+ s_we                                = 1,
+ e_we                                = 457,257,
+ s_sn                                = 1, 1,
+ e_sn                                = 440,273,
+ s_vert                              = 1, 1,
+ e_vert                              = 60, 60,
+ p_top_requested                     = 2000.,
+ auto_levels_opt                     = 2,
+ dzstretch_s                         = 1.20,
+ dzstretch_u                         = 1.04,
+ max_dz                              = 1000,
+ dzbot                               = 10,
+ num_metgrid_levels                  = 38,
+ num_metgrid_soil_levels             = 4,
+ dx                                  = 12000, 3000,
+ dy                                  = 12000, 3000,
+ grid_id                             = 1, 1,
+ parent_id                           = 0, 1,
+ i_parent_start                      = 1, 154,
+ j_parent_start                      = 1, 192,
+ parent_grid_ratio                   = 1, 4,
+ parent_time_step_ratio              = 1, 4,
+ feedback                            = 0, 
+ smooth_option                       = 0, 
+/
+
+&physics
+ mp_physics                          = 8,8,
+ ra_lw_physics                       = 4,4,
+ ra_sw_physics                       = 4,4,
+ radt                                = 12,12,
+ sf_sfclay_physics                   = 1,1, 
+ sf_surface_physics                  = 4,4, 
+ sf_lake_physics                     = 0,0,
+ sf_urban_physics                    = 3,3,
+ bl_pbl_physics                      = 8,8,
+ use_wudapt_lcz                      = 1,
+ bldt                                = 0,0,
+ cu_physics                          = 1,0,  ! 3 Grell-Freitas
+ cudt                                = 0,0,
+ cu_rad_feedback                     = .true.,.true.,
+ shcu_physics                        = 0,3,  ! 3 GRIMS
+ isfflx                              = 1,
+ ifsnow                              = 1,
+ icloud                              = 1,
+ surface_input_source                = 1, 
+ num_soil_layers                     = 4,
+ num_land_cat                        = 61,  
+ maxiens                             = 1,
+ maxens                              = 3,
+ maxens2                             = 3,
+ maxens3                             = 16,
+ ensdim                              = 144,
+ sst_update                          = 1,
+ tmn_update                          = 1,
+ sst_skin                            = 1,
+ bucket_mm                           = 1000.0, 
+ bucket_J                            = 1.e9,
+ fractional_seaice                   = 0,
+ use_aero_icbc                       = .false.,
+ swint_opt                           = 1,
+ o3input                             = 2,
+ sf_surface_mosaic                   = 0,
+ mosaic_cat                          = 3,
+ topo_shading                        = 0, 1,
+ slope_rad                           = 0, 1,
+ scalar_pblmix                       = 1, 1, 
+ tracer_pblmix                       = 1, 1,
+ rdlai2d                             = .true., 	! Not used in Noah-MP
+ grav_settling                       = 0,
+ aer_opt                             = 2,
+ aer_aod550_opt                      = 2, 2,
+ aer_angexp_opt                      = 3, 3,
+ aer_ssa_opt                         = 3, 3,
+ aer_asy_opt                         = 3, 3,
+ aer_type                            = 1, 1,
+/
+
+&noah_mp
+ dveg                                = 8,
+ opt_crs                             = 1,
+ opt_sfc                             = 1,
+ opt_btr                             = 2,
+ opt_run                             = 1,
+ opt_frz                             = 1,
+ opt_inf                             = 2,
+ opt_rad                             = 3,
+ opt_alb                             = 2,
+ opt_snf                             = 3,
+ opt_tbot                            = 2,
+ opt_stc                             = 1,
+ opt_gla                             = 1,
+ opt_rsf                             = 1,
+/
+
+&fdda
+/
+
+&dynamics
+ w_damping                           = 1,
+ diff_opt                            = 2, 2,
+ km_opt                              = 4, 4,
+ diff_6th_opt                        = 2, 2,
+ diff_6th_factor                     = 0.12, 0.12,
+ base_temp                           = 290.
+ damp_opt                            = 3,
+ zdamp                               = 5000., 5000.,
+ dampcoef                            = 0.2, 0.2,
+ khdif                               = 0, 0,
+ kvdif                               = 0, 0,
+ non_hydrostatic                     = .true., .true.,
+ moist_adv_opt                       = 1, 1,
+ scalar_adv_opt                      = 1, 1,
+ epssm                               = 0.3, 0.3,
+/
+
+&bdy_control
+ spec_bdy_width                      = 10,
+ spec_zone                           = 1,
+ relax_zone                          = 9,
+ spec_exp                            = 0.33,
+ specified                           = .true.,
+ nested                              = .false., .true.,
+/
+
+&grib2
+/
+
+&namelist_quilt
+ nio_tasks_per_group                 = 0,
+ nio_groups                          = 1,
+/
+
+&dfi_control
+/
+
+&scm
+/
+
+&tc
+/
+
+&diags
+ p_lev_diags                         = 1,
+ num_press_levels                    = 6,
+ press_levels                        = 100000, 92500, 85000, 70000, 50000, 20000,
+ use_tot_or_hyd_p                    = 1,
+ p_lev_missing                       = -999.,
+/
+
