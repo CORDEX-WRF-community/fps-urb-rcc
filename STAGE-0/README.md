@@ -1,10 +1,10 @@
-# WRF FPS-URB-RCC Stage-0 simulations
+# FPS-URB-RCC Stage-0 WRF simulations 
 
-For the stage-0 simulations it is suggested to have the lowest vertical model level within the urban canopy (dzbot=10). The default [namelist.input](https://github.com/FPS-URB-RCC/WRFcoordination/blob/main/namelist.input) differs from the CTRL [namelist.input_test](https://github.com/FPS-URB-RCC/WRFcoordination/blob/main/namelist.input_test) by the lowest model level (dzbot=10 instead 35), and the number of vertical levels for that reason needs to be increased (e_vert=60). Each group can make changes in the namelist.input for a specific sensitivty study they want to perform (e.g. sensitivity to land use data, sensitivity do the PBL scheme, to the number of vertical levels, to urban parameters etc.). 
+For the **Stage-0** simulations it is suggested to have the lowest vertical model level within the urban canopy. The default [namelist.input](./namelist.input) differs from the CTRL [namelist.input_test](../Test-7d/namelist.input) by the lowest model level (`dzbot = 10` vs `dzbot = 35`), and the number of vertical levels for that reason needs to be increased from 54 to 60 (`e_vert = 60`). Each group can make changes in the default [namelist.input](./namelist.input) for a specific sensitivty study they want to perform (e.g. sensitivity to land use data, sensitivity do the PBL scheme, to the number of vertical levels, to urban parameters etc.). 
 
 A common tar file that includes geo_em files (without urban category, urban LU with LCZ, extended LU urban category over LCZ, and urban from LU map) and aerosol files for the stage-0 simuations is available for all the groups to be downloaded rom this [link](https://meteo.unican.es/work/josipa/WRF-FPS-URB-RCC/WRF-FPS-URB-RCC_stage0_v0.tar). 
 
-The downloaded **WRF-FPS-URB-RCC_stage0_v0.tar** file contains:
+The downloaded tar file file contains:
 
 ## 1. geo_em files
 
@@ -31,7 +31,7 @@ AOD_20200301_20200901_d02
 
 **NOTE:** Make sure that these files are taken into account as *auxinput15* by indicating it in the namelist.input, for example:
 ```
-  auxinput15_inname = "AOD_20200301_20200901_d<domain>"
+auxinput15_inname = "AOD_20200301_20200901_d<domain>"
 ```
 In case you cannot run the complete period without performing the restart of the simuation, you need to adjust AOD file, so that the initial day in the AOD files corresponds to the restart day. This can be 	done using e.g. the [nco](http://research.jisao.washington.edu/data_sets/nco/) tool and the command:
 ```
