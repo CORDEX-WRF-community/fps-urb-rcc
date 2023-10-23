@@ -1985,9 +1985,9 @@ do iz= kts,kte
 !Define the layer sizes in the walls
 
       dzgb=(/0.2,0.12,0.08,0.05,0.03,0.02,0.02,0.01,0.005,0.0025/)
-      dzr=(/0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.01,0.005,0.0025/)   
-      dzw=(/0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.01,0.005,0.0025/)
-      dzf=(/0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02,0.02/) 
+      dzr=(/0.036,0.036,0.036,0.036,0.036,0.036,0.036,0.01,0.005,0.0025/)   
+      dzw=(/0.0432,0.0432,0.0432,0.0432,0.0432,0.0432,0.0432,0.01,0.005,0.0025/)
+      dzf=(/0.036,0.036,0.036,0.036,0.036,0.036,0.036,0.01,0.005,0.0025/) 
   
        ihu=0
 
@@ -2032,12 +2032,64 @@ do iz= kts,kte
         csr(ir) = csr_u(iurb)
         alar(ir)= csr_u(iurb)*alar_u(iurb)
       enddo
+!Alberto. change in thermal properties of the buildings following the Spanish
+!code
+         if(iurb.le.6) then
+                alar(1)= 4.76   ! forjado hormigón
+                alar(2)= 4.76
+                alar(3)= 4.76
+                alar(4)= 4.76
+                csr(1) = 1.24E6
+                csr(2) = 1.24E6
+                csr(3) = 1.24E6
+                csr(4) = 1.24E6
+                alar(5)= 1.3    ! Hormigón árido
+                alar(6)= 1.3
+                csr(5) = 2E6
+                csr(6) = 2E6
+                alar(7)= 0.039  ! Aislante
+                alar(8)= 0.039
+                csr(7) = 1.21E4
+                csr(8) = 1.21E4
+                alar(9)= 1.54   ! Capa protectora
+                alar(10) = 1.54
+                csr(9) = 1.32E6
+                csr(10) = 1.32E6
+         endif
+
+
       alar(nwr_u+1)= csr_u(iurb)*alar_u(iurb)
 
       do iw=1,nwr_u
         csw(iw) = csw_u(iurb)
         alaw(iw)= csw_u(iurb)*alaw_u(iurb)
       enddo
+!Alberto. 
+! Change in thermal properties of the buildings following the Spanish code
+! alaw_u in m2 s-1, alaw in W m-1 K-1.
+        if(iurb.le.6) then
+                alaw(1)= 2.3    !hormigón armado
+                alaw(2)= 2.3
+                alaw(3)= 2.3
+                csw(1) = 2.5E6
+                csw(2) = 2.5E6
+                csw(3) = 2.5E6
+                alaw(4)= 0.05   !aislante
+                csw(4) = 3.36E4
+                alaw(5)= 0.32   !ladrillos
+                alaw(6)= 0.32
+                alaw(7)= 0.32
+                csw(5) = 7.7E5
+                csw(6) = 7.7E5
+                csw(7) = 7.7E5
+                alaw(8)= 0.3    !Revestimiento inverno, yeso aislante
+                alaw(9)= 0.3
+                alaw(10) = 0.3
+                csw(8) = 7E5
+                csw(9) = 7E5
+                csw(10) = 7E5
+        endif
+
       alaw(nwr_u+1)=csw_u(iurb)*alaw_u(iurb) 
 
 !------------------------------------------------------------------------  
