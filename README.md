@@ -18,5 +18,8 @@ where `run/URBPARM_LCZ.TBL` is to be replaced by the file [URBPARM_LCZ-Madrid.TB
 
 | Folder | Description |
 |--------|-------------|
-| [Test-7d](./Test-7d) | 7-day test simulation for STAGE-0. |
-| [STAGE-0](./STAGE-0) | STAGE-0 configuration files and description. |
+| [meetings](./meetings) 	| Meeting agendas and presentations given during the meetings |
+| [Test-7d](./Test-7d) 		| 7-day test simulation for STAGE-0. |
+| [STAGE-0](./STAGE-0) 		| STAGE-0 configuration files and description. |
+| [urbanModule](./urbanModule) 		| Modules and files to output the specific urban variables |
+
