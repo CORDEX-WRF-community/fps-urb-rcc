@@ -1,0 +1,83 @@
+simulations:
+
+  - simulation_id: CTRL
+    simulation: Control simulation
+    description: >
+      FRA-12 > PAR-3 nesting. WUDAPT LCZs on Copernicus landuse
+      data and BEP-BEM with updated building morphological parameters
+    institution_id: UCAN, IPSL
+    parameters:
+      sf_urban_physics: 3
+
+  - simulation_id: URB2
+    simulation: BEP model
+    description: BEP model
+    institution_id: ""
+    parameters:
+      sf_urban_physics: 2
+    parent_id: CTRL
+
+  - simulation_id: URB1
+    simulation: SLUCM model
+    description: >
+      Bound to a different set (and number) of vertical levels. Above the
+      canopy layer the levels are the same. Levels below tallest model
+      building are removed.
+    institution_id: ""
+    parameters:
+      sf_urban_physics: 1
+    parent_id: CTRL
+    
+  - simulation_id: URB0
+    simulation: No urban parameterization (but urban category in LSM)
+    description: >
+      Allows assessing the existing EURO-CORDEX WRF simulations. Noah-LSM and
+      Noah-MP would work as LSM over urban surfaces. No one has yet worked on
+      the Noah urban parameters with LCZ. It would be interesting to design a
+      strategy for that, maybe similar to SURY by Wouters et al. in COSMO.
+    institution_id: ""
+    parameters:
+      sf_urban_physics: 0
+    parent_id: CTRL
+
+  - simulation_id: NOUR
+    simulation: No urban areas
+    description: > 
+      nourban static data from w2w.py. Allows to assess the true urban
+      effect by providing a reference run with no trace of the city.
+    institution_id: IPSL
+    parameters:
+      sf_urban_physics: 0
+    parent_id: CTRL
+
+  - simulation_id: DURC
+    simulation: Default urban categories
+    description: Use the default land-use data (MODIS) also for urban category
+    institution_id: CUNI
+    parameters:
+      sf_urban_physics: 3
+    parent_id: CTRL
+
+  - simulation_id: CHEM
+    simulation: Use chemical transport model (WRF-CHEM)
+    description: Use chemical transport model (WRF-CHEM)
+    institution_id: UM
+    parameters:
+      sf_urban_physics: 3
+    parent_id: CTRL
+    
+  - simulation_id: ALPX
+    simulation: Extended convection-permitting domain (I4C ALPX-3)
+    description: Extended convection-permitting domain (I4C ALPX-3)
+    institution_id: UCAN
+    parameters:
+      sf_urban_physics: 3
+    parent_id: CTRL
+    
+  - simulation_id: DEFB
+    simulation: Default building morphological parameters
+    description: 
+    institution_id: UCAN
+    parameters:
+      sf_urban_physics: 3
+    parent_id: ALPX
