@@ -81,3 +81,13 @@ simulations:
     parameters:
       sf_urban_physics: 3
     parent_id: ALPX
+
+  - simulation_id: NOAE
+    simulation: No aerosol climatology data
+    description: As CTRL, but with the default aerosol profile
+    institution_id: 
+    parameters:
+      sf_urban_physics: 3
+      aer_opt: 0/1?
+    parent_id: CTRL
+
