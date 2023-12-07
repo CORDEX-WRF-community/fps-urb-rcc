@@ -8,7 +8,6 @@ simulations:
       BEP-BEM with updated building morphological parameters for Madrid
     institution_id: UCAN, IPSL, CYI
     parameters:
-      sf_urban_physics: 3
 
   - simulation_id: URB2
     simulation: BEP model
@@ -41,7 +40,6 @@ simulations:
       with nearest neighbour LU categories using w2w.py
     institution_id: IPSL
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: NOLZ
@@ -51,7 +49,6 @@ simulations:
       without w2w tool applied.
     institution_id: IPSL
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: DURC
@@ -60,7 +57,6 @@ simulations:
       As CTRL, but with the default MODIS land-use data, also for urban category
     institution_id: ""
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: CHEM
@@ -69,7 +65,6 @@ simulations:
       As CTRL, but with the options from the chemical transport model (WRF-CHEM)
     institution_id: UM
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
     
   - simulation_id: ALPX
@@ -78,7 +73,6 @@ simulations:
       As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
     institution_id: UCAN
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: DPAR
@@ -88,7 +82,6 @@ simulations:
       the version updated for Madrid.
     institution_id: UCAN
     parameters:
-      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: AER1
@@ -96,10 +89,8 @@ simulations:
     description: As CTRL, but with different sfc layer scheme
     institution_id: CUNI
     parameters:
-      sf_urban_physics: 3
       sf_sfclay_physics: 2
       aer_opt: 1
-    parent_id: CTRL
 
   - simulation_id: AER2
     simulation: No aerosol climatology data
@@ -107,7 +98,6 @@ simulations:
       As CTRL, but with the default aerosol profile and sfc layer scheme
     institution_id: CUNI
     parameters:
-      sf_urban_physics: 3
       sf_sfclay_physics: 2
       aer_opt: 2
     parent_id: AER1
