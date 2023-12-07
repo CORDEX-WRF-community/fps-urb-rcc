@@ -2,16 +2,17 @@ simulations:
 
   - simulation_id: CTRL
     simulation: Control simulation
-    description: >
-      FRA-12 > PAR-3 nesting. WUDAPT LCZs on Copernicus landuse
-      data and BEP-BEM with updated building morphological parameters
-    institution_id: UCAN, IPSL
+    description: 
+      EUR-12 -> PAR-3 nesting. 
+      WUDAPT LCZs on LANDMATE_PFT data 
+      BEP-BEM with updated building morphological parameters for Madrid
+    institution_id: UCAN, IPSL, CYI
     parameters:
       sf_urban_physics: 3
 
   - simulation_id: URB2
     simulation: BEP model
-    description: BEP model
+    description: As CTRL run, but with BEP urban model
     institution_id: ""
     parameters:
       sf_urban_physics: 2
@@ -19,48 +20,49 @@ simulations:
 
   - simulation_id: URB1
     simulation: SLUCM model
-    description: >
-      Bound to a different set (and number) of vertical levels. Above the
-      canopy layer the levels are the same. Levels below tallest model
-      building are removed.
+    description: As CTRL run, but with SLUCM urban model
     institution_id: ""
     parameters:
       sf_urban_physics: 1
     parent_id: CTRL
     
   - simulation_id: URB0
-    simulation: No urban parameterization (but urban category in LSM)
-    description: >
-      Allows assessing the existing EURO-CORDEX WRF simulations. Noah-LSM and
-      Noah-MP would work as LSM over urban surfaces. No one has yet worked on
-      the Noah urban parameters with LCZ. It would be interesting to design a
-      strategy for that, maybe similar to SURY by Wouters et al. in COSMO.
-    institution_id: ""
+    simulation: No urban parameterization, but with urban category in LU data
+    description: As CTRL run, but urban model sitched off
+    institution_id: CYI
     parameters:
       sf_urban_physics: 0
     parent_id: CTRL
 
   - simulation_id: NOUR
     simulation: No urban areas
-    description: > 
-      nourban static data from w2w.py. Allows to assess the true urban
-      effect by providing a reference run with no trace of the city.
+    description: As CTRL, but without urban category in LU static data,
+      cities replaced with nearest neighbour LU categories using w2w.py
     institution_id: IPSL
     parameters:
-      sf_urban_physics: 0
+      sf_urban_physics: 3
+    parent_id: CTRL
+
+  - simulation_id: NOLCZ
+    simulation: No LCZ categories
+    description: As CTRL, but withouth LCZ categories
+      geo_em files directly from WPS, without w2w tool applied.
+    institution_id: IPSL
+    parameters:
+      sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: DURC
     simulation: Default urban categories
-    description: Use the default land-use data (MODIS) also for urban category
-    institution_id: CUNI
+    description: As CTRL, buut with the default MODIS land-use data, also for urban category
+    institution_id: ""
     parameters:
       sf_urban_physics: 3
     parent_id: CTRL
 
   - simulation_id: CHEM
-    simulation: Use chemical transport model (WRF-CHEM)
-    description: Use chemical transport model (WRF-CHEM)
+    simulation: With chemical transport model (WRF-CHEM) switched on
+    description: As CTRL, but with the options from the chemical transport model (WRF-CHEM)
     institution_id: UM
     parameters:
       sf_urban_physics: 3
@@ -68,26 +70,40 @@ simulations:
     
   - simulation_id: ALPX
     simulation: Extended convection-permitting domain (I4C ALPX-3)
-    description: Extended convection-permitting domain (I4C ALPX-3)
+    description: As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
     institution_id: UCAN
     parameters:
       sf_urban_physics: 3
     parent_id: CTRL
-    
-  - simulation_id: DEFB
-    simulation: Default building morphological parameters
-    description: 
-    institution_id: UCAN
-    parameters:
-      sf_urban_physics: 3
-    parent_id: ALPX
 
-  - simulation_id: NOAE
-    simulation: No aerosol climatology data
-    description: As CTRL, but with the default aerosol profile
-    institution_id: 
+  - simulation_id: DPAR
+    simulation: Deafault WRF urban parameters
+    description: As CTRL, but with default urban parameters instead those used in CTRL run,
+      the version updated for Madrid.
+    institution_id: UCAN
     parameters:
       sf_urban_physics: 3
-      aer_opt: 0/1?
     parent_id: CTRL
+
+  - simulation_id: AER1
+    simulation: No aerosol climatology data
+    description: As CTRL, but with different sfc layer scheme
+    institution_id: CUNI
+    parameters:
+      sf_urban_physics: 3
+      sf_sfclay_physics: 2
+      aer_opt: 2
+    parent_id: CTRL
+
+  - simulation_id: AER2
+    simulation: No aerosol climatology data
+    description: As CTRL, but with the default aerosol profile and sfc layer scheme
+    institution_id: CUNI
+    parameters:
+      sf_urban_physics: 3
+      sf_sfclay_physics: 2
+      aer_opt: 2
+    parent_id: AER1
+
+
 
