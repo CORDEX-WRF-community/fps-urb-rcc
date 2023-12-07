@@ -54,7 +54,7 @@ simulations:
 
   - simulation_id: DURC
     simulation: Default urban categories
-    description: As CTRL, buut with the default MODIS land-use data, also for urban category
+    description: As CTRL, but with the default MODIS land-use data, also for urban category
     institution_id: ""
     parameters:
       sf_urban_physics: 3
@@ -92,7 +92,7 @@ simulations:
     parameters:
       sf_urban_physics: 3
       sf_sfclay_physics: 2
-      aer_opt: 2
+      aer_opt: 1
     parent_id: CTRL
 
   - simulation_id: AER2
