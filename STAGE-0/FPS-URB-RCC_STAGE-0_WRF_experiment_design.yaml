@@ -91,14 +91,14 @@ simulations:
     parameters:
       sf_sfclay_physics: 2
       aer_opt: 1
+    parent_id: SFL2
 
-  - simulation_id: AER2
-    simulation: No aerosol climatology data
+  - simulation_id: SFL2
+    simulation: Janjic MO surface layer
     description: >
-      As CTRL, but with the default aerosol profile and sfc layer scheme
+      As CTRL, but with Monin-Obukhov (Janjic) scheme
     institution_id: CUNI
     parameters:
       sf_sfclay_physics: 2
-      aer_opt: 2
-    parent_id: AER1
+    parent_id: CTRL
 
