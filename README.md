@@ -6,9 +6,9 @@ This repository is created for the coordination of the WRF simulations within th
 
 [**STAGE-0**](./STAGE-0) simulations proposed in the [The FPS-URB-RCC protocol](https://docs.google.com/document/d/1R4O1x67Tpr-qcEPlkzKDvJP1itoxKPbaBZO9gpIfamc/edit) will be performed in order to test RCMs and urban schemes, as well as the model and domain set-up. These simulations planned to be centered over the Paris region, and to simulate 5-month period covering two extreme events in 2020 (heat and heavy precipitation), in order to facilitate a coordinated analysis of the two extremes.  Furthermore, these test simulations will prepare the ground for the coordinated evaluation simulations (**STAGE-1**).
 
-These experiments use CWC WRF v4.5.1.3
+These experiments use CWC WRF v4.5.1.4
 ```bash
-git clone --recurse-submodules -b v4.5.1.3 https://github.com/CORDEX-WRF-community/WRF.git
+git clone --recurse-submodules -b v4.5.1.4 https://github.com/CORDEX-WRF-community/WRF.git
 ```
 where `run/URBPARM_LCZ.TBL` is to be replaced by the file [URBPARM_LCZ-Madrid.TBL](./URBPARM_LCZ-Madrid.TBL) in this repo.
 
