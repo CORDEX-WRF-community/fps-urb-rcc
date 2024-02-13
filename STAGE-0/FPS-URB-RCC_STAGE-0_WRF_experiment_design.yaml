@@ -6,13 +6,13 @@ simulations:
       EUR-12 -> PAR-3 nesting. 
       WUDAPT LCZs on LANDMATE_PFT data.
       BEP-BEM with updated building morphological parameters for Madrid
-    institution_id: UCAN, IPSL, CYI, IDL
+    institution_id: UCAN, IPSL, CYI, IDL, CIMA
     parameters:
 
   - simulation_id: URB2
     simulation: BEP model
     description: As CTRL run, but with BEP urban model
-    institution_id: ""
+    institution_id: CIMA
     parameters:
       sf_urban_physics: 2
     parent_id: CTRL
