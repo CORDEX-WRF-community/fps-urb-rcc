@@ -16,14 +16,6 @@ simulations:
     parameters:
       sf_urban_physics: 2
     parent_id: CTRL
-
-  - simulation_id: URB1
-    simulation: SLUCM model
-    description: As CTRL run, but with SLUCM urban model
-    institution_id: ""
-    parameters:
-      sf_urban_physics: 1
-    parent_id: CTRL
     
   - simulation_id: URB0
     simulation: No urban parameterization, but with urban category in LU data
@@ -58,19 +50,11 @@ simulations:
     institution_id: ""
     parameters:
     parent_id: CTRL
-
-  - simulation_id: CHEM
-    simulation: With chemical transport model (WRF-CHEM) switched on
-    description: >
-      As CTRL, but with the options from the chemical transport model (WRF-CHEM)
-    institution_id: UM
-    parameters:
-    parent_id: CTRL
     
-  - simulation_id: ALPX
-    simulation: Extended convection-permitting domain (I4C ALPX-3)
+  - simulation_id: COLC
+    simulation: Corine land cover
     description: >
-      As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
+      As CTRL, but with the default CORINE land-use data
     institution_id: UCAN
     parameters:
     parent_id: CTRL
@@ -84,14 +68,21 @@ simulations:
     parameters:
     parent_id: CTRL
 
-  - simulation_id: AER1
-    simulation: No aerosol climatology data
-    description: As CTRL, but with different sfc layer scheme
-    institution_id: CUNI
+  - simulation_id: ALPX
+    simulation: Extended convection-permitting domain (I4C ALPX-3)
+    description: >
+      As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
+    institution_id: UCAN
     parameters:
-      sf_sfclay_physics: 2
-      aer_opt: 1
-    parent_id: SFL2
+    parent_id: CTRL
+
+  - simulation_id: CHEM
+    simulation: With chemical transport model (WRF-CHEM) switched on
+    description: >
+      As CTRL, but with the options from the chemical transport model (WRF-CHEM)
+    institution_id: UM
+    parameters:
+    parent_id: CTRL
 
   - simulation_id: SFL2
     simulation: Janjic MO surface layer
@@ -102,12 +93,37 @@ simulations:
       sf_sfclay_physics: 2
     parent_id: CTRL
 
+  - simulation_id: AER1
+    simulation: No aerosol climatology data
+    description: As CTRL, but with different sfc layer scheme
+    institution_id: CUNI
+    parameters:
+      sf_sfclay_physics: 2
+      aer_opt: 0
+    parent_id: SFL2
+
+  - simulation_id: AER2
+    simulation: Aerosols BULK 
+    description: As CTRL, but with default treatmen of aerosols
+    institution_id: CUNI
+    parameters:
+      sf_sfclay_physics: 2
+      aer_opt: 1
+    parent_id: SFL2
+
+  - simulation_id: URB1
+    simulation: SLUCM model
+    description: As CTRL run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2
+    institution_id: CUNI
+    parameters:
+      sf_urban_physics: 1
+    parent_id: SFL2    
+
   - simulation_id: PBL5
     simulation: MYNN 2.5 PBL scheme
     description: >
       As CTRL, but with MYNN 2.5 PBL scheme
-    institution_id: IDL
+    institution_id: IDL-FCUL
     parameters:
       bl_pbl_physics: 5
     parent_id: CTRL
-
