@@ -2,7 +2,7 @@
 
 For the **Stage-0** simulations it is suggested to have the lowest vertical model level within the urban canopy. The default [namelist.input](./namelist.input) differs from the CTRL [namelist.input_test](../Test-7d/namelist.input) by the lowest model level (`dzbot = 10` vs `dzbot = 35`), and the number of vertical levels for that reason needs to be increased from 54 to 60 (`e_vert = 60`). Each group can make changes in the default [namelist.input](./namelist.input) for a specific sensitivty study they want to perform (e.g. sensitivity to land use data, sensitivity do the PBL scheme, to the number of vertical levels, to urban parameters etc.). 
 
-A common tar file that includes geo_em files (without urban category, urban LU with LCZ, extended LU urban category over LCZ, and urban from LU map) and aerosol files for the stage-0 simuations is available for all the groups to be downloaded rom this [link](https://meteo.unican.es/work/josipa/WRF-FPS-URB-RCC/WRF-FPS-URB-RCC_stage0_v0.tar). 
+A common tar file that includes geo_em files (without urban category, urban LU with LCZ, extended LU urban category over LCZ, and urban from LU map) and aerosol files for the stage-0 simuations is available for all the groups to be downloaded from this [link](https://meteo.unican.es/work/josipa/WRF-FPS-URB-RCC/WRF-FPS-URB-RCC_stage0_v0.tar). 
 
 The downloaded tar file file contains:
 
