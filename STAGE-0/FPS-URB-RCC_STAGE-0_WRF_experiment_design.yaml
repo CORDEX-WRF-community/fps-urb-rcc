@@ -127,3 +127,12 @@ simulations:
     parameters:
       bl_pbl_physics: 5
     parent_id: CTRL
+
+  - simulation_id: MICR
+    simulation: P3 microphysics scheme
+    description: >
+      As CTRL, but with P3 microphysics scheme
+    institution_id: AUTH-MC
+    parameters:
+      mp_physics: 52
+    parent_id: CTRL
