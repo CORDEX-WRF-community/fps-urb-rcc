@@ -6,7 +6,7 @@ simulations:
       EUR-12 -> PAR-3 nesting. 
       WUDAPT LCZs on LANDMATE_PFT data.
       BEP-BEM with updated building morphological parameters for Madrid
-    institution_id: UCAN, IPSL, CYI, IDL, CIMA
+    institution_id: UCAN,IPSL,CYI,IDL-FCUL,CIMA,AUTH-MC
     parameters:
 
   - simulation_id: URB2
@@ -77,7 +77,7 @@ simulations:
     parent_id: CTRL
 
   - simulation_id: CHEM
-    simulation: With chemical transport model (WRF-CHEM) switched on
+    simulation: Chemical transport model (WRF-CHEM) switched on
     description: >
       As CTRL, but with the options from the chemical transport model (WRF-CHEM)
     institution_id: UM
