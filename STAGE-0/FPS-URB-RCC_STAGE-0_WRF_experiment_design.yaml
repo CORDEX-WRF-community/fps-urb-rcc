@@ -51,14 +51,6 @@ simulations:
     parameters:
     parent_id: CTRL
     
-  - simulation_id: COLC
-    simulation: Corine land cover
-    description: >
-      As CTRL, but with the default CORINE land-use data
-    institution_id: UCAN
-    parameters:
-    parent_id: CTRL
-
   - simulation_id: DPAR
     simulation: Default WRF urban parameters
     description: >
@@ -67,6 +59,14 @@ simulations:
     institution_id: UCAN
     parameters:
     parent_id: CTRL
+    
+  - simulation_id: COLC
+    simulation: Corine land cover
+    description: >
+      As DPAR, but with the default CORINE land-use data
+    institution_id: UCAN
+    parameters:
+    parent_id: DPAR
 
   - simulation_id: ALPX
     simulation: Extended convection-permitting domain (I4C ALPX-3)
