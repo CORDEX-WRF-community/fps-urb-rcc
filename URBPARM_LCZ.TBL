@@ -1,7 +1,6 @@
 # The parameters in this table may vary greatly from city to city.
-# The default values are probably not appropriate for any given city.
-# Users should adapt these values based on the city they are working
-# with.
+# This values have been adapted to the Paris (France) urban area
+# by Kwok Chun (Kwok DOT Chun IN THE DOMAIN uwe DOT ac DOT uk)
 
 # Urban Parameters depending on Urban type
 # USGS
@@ -555,8 +554,12 @@ BUILDING HEIGHTS: 2
 
 #     height   Percentage
 #      [m]       [%]
-      15.0       50.
-      20.0       50.
+       5.0        6.
+      10.0       40.
+      15.0       27.
+      20.0       23.
+      25.0        3.
+      30.0        1.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 3
@@ -573,11 +576,12 @@ BUILDING HEIGHTS: 4
 
 #     height   Percentage
 #      [m]       [%]
-      40.0      17.
-      45.0      21.
-      50.0      24.
-      55.0      21.
-      60.0      17.
+       5.0       7.
+      10.0      26.
+      15.0      30.
+      20.0      22.
+      25.0      12.
+      30.0       3.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 5
@@ -585,8 +589,10 @@ BUILDING HEIGHTS: 5
 
 #     height   Percentage
 #      [m]       [%]
-      15.0       50.
-      20.0       50.
+       5.0       41.
+      10.0       53.
+      15.0        5.
+      20.0        1.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 6
@@ -594,8 +600,9 @@ BUILDING HEIGHTS: 6
 
 #     height   Percentage
 #      [m]       [%]
-       5.0       72.
-      10.0       28.
+       5.0       64.
+      10.0       34.
+      15.0        2.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 7
@@ -611,8 +618,9 @@ BUILDING HEIGHTS: 8
 
 #     height   Percentage
 #      [m]       [%]
-       5.0       72.
-      10.0       28.
+       5.0       37.
+      10.0       57.
+      15.0        6.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 9
@@ -620,8 +628,9 @@ BUILDING HEIGHTS: 9
 
 #     height   Percentage
 #      [m]       [%]
-       5.0       72.
+       5.0       71.
       10.0       28.
+      15.0        1.
 END BUILDING HEIGHTS
 
 BUILDING HEIGHTS: 10
