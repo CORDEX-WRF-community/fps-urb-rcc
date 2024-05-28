@@ -1,0 +1,13 @@
+# Diagnostics for urban studies
+
+state    real     tasupav        ij     misc        -         -       h12     "tasupav"          "Near-surface temperature urban pavements"     "K"
+state    real     tasuroof       ij     misc        -         -       h12     "tasuroof"         "Near-surface temperature urban roof"          "K"
+state    real     tasugreen      ij     misc        -         -       h12     "tasugreen"        "Near-surface temperature urban green spaces"  "K"
+state    real     tasublue       ij     misc        -         -       h12     "tasublue"         "Near-surface temperature urban blue spaces"   "K"
+state    real     antropohfx     ij     misc        -         -       h12     "antropohfx"       "Anthropogenic urban heat flux"                "Jkg-2s-1"
+state    real     tsku           ij     misc        -         -       h12     "utsk"             "urban skin temperature"                       "K"
+state    real     tskupav        ij     misc        -         -       h12     "tskupav"          "Surface temperature urban pavements"          "K"
+state    real     tskuroof       ij     misc        -         -       h12     "tskuroof"         "Surface temperature urban roof"               "K"
+state    real     tskugreen      ij     misc        -         -       h12     "tskugreen"        "Surface temperature urban green spaces"       "K"
+state    real     tskublue       ij     misc        -         -       h12     "tskublue"         "Surface temperature urban blue spaces"        "K"
+
