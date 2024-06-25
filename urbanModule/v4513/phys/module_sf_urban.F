@@ -54,6 +54,7 @@ use module_wrf_error
    REAL, DIMENSION(1:24)           :: IRHO_TBL
    REAL, ALLOCATABLE, DIMENSION(:) :: HSESF_TBL
 
+   REAL, ALLOCATABLE, DIMENSION(:) :: SMCMAX_TBL
    REAL, ALLOCATABLE, DIMENSION(:) :: CAPR_TBL, CAPB_TBL, CAPG_TBL
    REAL, ALLOCATABLE, DIMENSION(:) :: AKSR_TBL, AKSB_TBL, AKSG_TBL
    REAL, ALLOCATABLE, DIMENSION(:) :: ALBR_TBL, ALBB_TBL, ALBG_TBL
@@ -221,6 +222,7 @@ use module_wrf_error
 !
 !  AH  [ W m{-2} ]        : anthropogenic heat  ( W m{-2} in the table, converted internally to cal cm{-2} )
 !  ALH [ W m{-2} ]        : anthropogenic latent heat  ( W m{-2} in the table, converted internally to cal cm{-2} )
+!  SMCMAX[ m{-3} ]        : Saturated soil moisture ([volumetric fraction])
 !  CAPR[ J m{-3} K{-1} ]  : heat capacity of roof ( units converted in code to [ cal cm{-3} deg{-1} ] )
 !  CAPB[ J m{-3} K{-1} ]  : heat capacity of building wall ( units converted in code to [ cal cm{-3} deg{-1} ] )
 !  CAPG[ J m{-3} K{-1} ]  : heat capacity of road ( units converted in code to [ cal cm{-3} deg{-1} ] )
@@ -472,6 +474,7 @@ use module_wrf_error
 
    REAL :: ZR, Z0C, Z0HC, ZDC, SVF, R, RW, HGT, AH, ALH
    REAL :: SIGMA_ZED
+   REAL :: SMCX
    REAL :: CAPR, CAPB, CAPG, AKSR, AKSB, AKSG, ALBR, ALBB, ALBG 
    REAL :: EPSR, EPSB, EPSG, Z0R,  Z0B,  Z0G,  Z0HB, Z0HG
    REAL :: TRLEND,TBLEND,TGLEND
@@ -613,7 +616,7 @@ use module_wrf_error
    endif
 
    CALL read_param(UTYPE,ZR,SIGMA_ZED,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,  &
-                   AH,CAPR,CAPB,CAPG,AKSR,AKSB,AKSG,ALBR,ALBB,    &
+                   AH,SMCX,CAPR,CAPB,CAPG,AKSR,AKSB,AKSG,ALBR,ALBB,&
                    ALBG,EPSR,EPSB,EPSG,Z0R,Z0B,Z0G,Z0HB,Z0HG,     &
                    BETR,BETB,BETG,TRLEND,TBLEND,TGLEND,           &
 !for BEP
@@ -1846,7 +1849,7 @@ ENDIF
 !
 !===============================================================================
    SUBROUTINE read_param(UTYPE,                                        & ! in
-                         ZR,SIGMA_ZED,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,    & ! out
+                         ZR,SIGMA_ZED,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,SMCX, & ! out
                          CAPR,CAPB,CAPG,AKSR,AKSB,AKSG,ALBR,ALBB,ALBG, & ! out
                          EPSR,EPSB,EPSG,Z0R,Z0B,Z0G,Z0HB,Z0HG,         & ! out
                          BETR,BETB,BETG,TRLEND,TBLEND,TGLEND,          & ! out
@@ -1860,7 +1863,7 @@ ENDIF
 
    INTEGER, INTENT(IN)  :: UTYPE 
 
-   REAL, INTENT(OUT)    :: ZR,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,ALH,          &
+   REAL, INTENT(OUT)    :: ZR,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,ALH,SMCX,     &
                            CAPR,CAPB,CAPG,AKSR,AKSB,AKSG,ALBR,ALBB,ALBG, &
                            SIGMA_ZED,                                    &
                            EPSR,EPSB,EPSG,Z0R,Z0B,Z0G,Z0HB,Z0HG,         &
@@ -1896,6 +1899,7 @@ ENDIF
 
 !m   FRC_URB= FRC_URB_TBL(UTYPE)
 
+   SMCX=    SMCMAX_TBL(UTYPE)
    CAPR=    CAPR_TBL(UTYPE)
    CAPB=    CAPB_TBL(UTYPE)
    CAPG=    CAPG_TBL(UTYPE)
@@ -2069,6 +2073,8 @@ ENDIF
             if(allocate_status /= 0) FATAL_ERROR('Error allocating BETB_TBL in urban_param_init')
             ALLOCATE( BETG_TBL(ICATE), stat=allocate_status )
             if(allocate_status /= 0) FATAL_ERROR('Error allocating BETG_TBL in urban_param_init')
+            ALLOCATE( SMCMAX_TBL(ICATE), stat=allocate_status )
+            if(allocate_status /= 0) FATAL_ERROR('Error allocating SMCMAX_TBL in urban_param_init')
             ALLOCATE( CAPR_TBL(ICATE), stat=allocate_status )
             if(allocate_status /= 0) FATAL_ERROR('Error allocating CAPR_TBL in urban_param_init')
             ALLOCATE( CAPB_TBL(ICATE), stat=allocate_status )
@@ -2194,6 +2200,8 @@ ENDIF
          read(string(indx+1:),*) alh_tbl(1:icate)
       else if (name == "FRC_URB") then
          read(string(indx+1:),*) frc_urb_tbl(1:icate)
+      else if (name == "SMCMAX_URB") then
+         read(string(indx+1:),*) smcmax_tbl(1:icate)
       else if (name == "CAPR") then
          read(string(indx+1:),*) capr_tbl(1:icate)
          ! Convert CAPR_TBL from J m{-3} K{-1} to cal cm{-3} deg{-1}
