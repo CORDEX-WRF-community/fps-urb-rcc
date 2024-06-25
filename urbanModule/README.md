@@ -7,10 +7,10 @@ The vertical profile of temperatures is called 'pt_u' inside the BEP1D subroutin
 Reference 
 Martilli, A., Clappier, A., and Rotach, M. W. (2002). An urban surface exchange parameterisation for mesoscale models. Boundary-Layer Meteorology, 104(2):261–304.
 
-# Expanding WORK 
+## Expanding WORK 
 In order to be able to test sensitivity to soil infiltration additional modifications are performed in order to be able to change the soil-water capacity for each LCZ
 
-In WRF ther are hard coded morphological values for soil moisture, specific for urban grid points found in phys/module_sf_noahlsm.F. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in phys/module_sf_urban.F module (see table 9) used only for the ’green roof’
+In WRF ther are hard coded morphological values for soil moisture, specific for urban grid points found in `phys/module_sf_noahlsm.F`. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in `phys/module_sf_urban.F` module (see table 9) used only for the _’green roof’_
 | Acronym   | value  | description |
 | ---       | ----   | ---- |
 | SHDFAC    |  0.05  | Vegetated area fraction
@@ -20,6 +20,10 @@ In WRF ther are hard coded morphological values for soil moisture, specific for 
 | SMCWLT    |  0.40  | Wilting point (seems to be WLTSMC from SOILPARM.TBL)
 | SMCDRY    |  0.40  | Residual soil moisture (seems to be DRYSMC from SOILPARM.TBL)
 | DF1       |  3.24  | thermal diffusivity
-| CSOILa    |  3.0E6 | soil heat capacity (from GENPARM.TBL)
+| CSOIL<SUP>a</SUP>    |  3.0E6 | soil heat capacity (from GENPARM.TBL)
 
-a in subroutine `HRT`, `NOPAC`
+<SUP>a</SUP> in subroutine `HRT`, `NOPAC`
+
+In order to achieve that:
+1. New line will be introduced into `URBPARM_LCZ.TBL` with values of `SMCMAX` for each LCZ
+1. Insert the reading of these values and pass them to `phys/module_sf_noahlsm.F`
