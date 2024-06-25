@@ -8,9 +8,10 @@ Reference
 Martilli, A., Clappier, A., and Rotach, M. W. (2002). [An urban surface exchange parameterisation for mesoscale models](https://link.springer.com/article/10.1023/A:1016099921195). Boundary-Layer Meteorology, 104(2):261–304.
 
 ## Expanding WORK 
-In order to be able to test sensitivity to soil infiltration additional modifications are performed in order to be able to change the soil-water capacity for each LCZ
+In order to be able to test sensitivity to soil infiltration additional modifications are performed in order to be able to change the soil-water capacity for each LCZ. 
 
-In WRF ther are hard coded morphological values for soil moisture, specific for urban grid points found in `phys/module_sf_noahlsm.F`. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in `phys/module_sf_urban.F` module (see table 9) used only for the _’green roof’_
+In WRF ther are hard coded morphological values for soil moisture, specific for urban grid points found in `phys/module_sf_noahlsm.F`. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in `phys/module_sf_urban.F` module (see table 9) used only for the _’green roof’_. (See full analysis ![urban_infiltSens.pdf](./urban_infiltSens.pdf))
+
 | Acronym   | value  | description |
 | ---       | ----   | ---- |
 | SHDFAC    |  0.05  | Vegetated area fraction
