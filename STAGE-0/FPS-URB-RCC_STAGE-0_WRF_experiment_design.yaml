@@ -76,6 +76,17 @@ simulations:
     parameters:
     parent_id: CTRL
 
+  - simulation_id: CI4C
+    simulation: Full configuration from I4C
+    description: >
+      As ALPX, but including the exact configuration used in I4C
+    institution_id: UCAN
+    parameters:
+      sf_urban_physics: 1 # SLUCM
+      bl_pbl_physics: 8   # Bougeault and Lacarrere (BouLac) PBL
+      e_vert: 54
+    parent_id: ALPX
+
   - simulation_id: CHEM
     simulation: Chemical transport model (WRF-CHEM) switched on
     description: >
