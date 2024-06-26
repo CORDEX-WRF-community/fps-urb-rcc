@@ -104,14 +104,13 @@ simulations:
       sf_sfclay_physics: 2
     parent_id: CTRL
 
-  - simulation_id: AER1
+  - simulation_id: AER0
     simulation: No aerosol climatology data
-    description: As CTRL, but with different sfc layer scheme
+    description: As CTRL, but without aerosols
     institution_id: CUNI
     parameters:
-      sf_sfclay_physics: 2
       aer_opt: 0
-    parent_id: SFL2
+    parent_id: CTRL
 
   - simulation_id: AER2
     simulation: Aerosols BULK 
