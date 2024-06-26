@@ -16,7 +16,7 @@ In WRF ther are hard coded morphological values for soil characteristics specifi
 
 | Acronym   | value  | description |
 | ---       | ----   | ---- |
-| SHDFAC    |  0.05  | Vegetated area fraction
+| SHDFAC    |  0.05  | Vegetated area fraction <SUP>*</SUP>
 | RSMIN     |  400   | Minimum stomatal resistance (VEGPARM.TBL) <SUP>*</SUP>
 | SMCMAX    |  0.45  | Saturated soil moisture (seems to be MAXSMC from SOILPARM.TBL)
 | SMCREF    |  0.42  | Reference soil moisture (seems to be REFSMC from SOILPARM.TBL)
@@ -29,6 +29,22 @@ In WRF ther are hard coded morphological values for soil characteristics specifi
 <SUP>*</SUP> not for Noah-MP lsm
 <SUP>@</SUP> not for Noah lsm
 <SUP>a</SUP> in subroutine `HRT`, `NOPAC`
+
+### Values with modified values for urban grid points in Noah-MP
+The Noah-MP land surface model has the following specific hard coded additional values for urban grid points (found in `phys/module_sf_noahmplsm.F` after `parameters%urban_flag = .TRUE.`):
+- FVEG = 0.: green vegetation fraction [0.0-1.0]
+- QSFC = QFX/(RHOAIR*CH) + QAIR: mixing ratio at lowest model layer, CH: sensible heat exchange coefficient, RHOAIR: density air (kg/m3), QAIR: specific humidity (kg/kg) (q2/(1+q2)), QFX: moisture flux
+- Q2B = QSFC: bare ground heat conductance
+- LAI  = 0.0: leaf area index
+- SAI  = 0.0: stem area index?
+- Z0MG = parameters%Z0MVT: z0 momentum, ground (m), Z0MVT: momentum roughness length (m)
+- ZPDG  = 0.65 * parameters%HVT: zero plane displacement (m), HVT: top of canopy (m)
+- Z0M  = Z0MG: z0 momentum (m)
+- ZPD  = ZPDG: zero plane displacement (m)
+- for SNOWH == 0.0; RSURF = 1.E6: ground surface resistance (s/m)
+- DF(1:NSOIL) = 3.24: thermal conductivity [w/m/k]
+- FCR = 0.95: Impermeable fraction due to frozen soil ([fraction])
+- (carbon cycle related) XLAI = 0.0, XSAI = 0.0, GPP = 0.0, NPP = 0.0, NEE = 0.0, AUTORS = 0.0, HETERS = 0.0, TOTSC = 0.0, TOTLB = 0.0, LFMASS = 0.0, RTMASS = 0.0, STMASS = 0.0, WOOD = 0.0, STBLCP = 0.0,FASTCP = 0.0, GRAIN = 0.0
 
 In order to achieve that:
 1. New line will be introduced into `URBPARM_LCZ.TBL` with values of `SMCMAX` and `FCR` for each LCZ
