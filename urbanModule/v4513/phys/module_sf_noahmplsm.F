@@ -440,6 +440,11 @@ MODULE MODULE_SF_NOAHMPLSM
      REAL :: TD_DDRAIN          ! m, Depth of drain
      REAL :: KLAT_FAC           ! multiplication factor to determine conk(j1,j) from sol_k(j1,j) for HRU
 
+!------------------------------------------------------------------------------------------!
+! From the LCZ section from URBPARM_LCZ.TBL file
+!------------------------------------------------------------------------------------------!
+     REAL :: SMCMAX_lcz(11)     ! Saturated soil moisture ([volumetric fraction m^-3])
+     REAL :: FCR_lcz(11)        ! Impermeable fraction due to frozen soil ([fraction])
 
   END TYPE noahmp_parameters
 
