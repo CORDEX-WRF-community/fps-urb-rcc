@@ -2005,6 +2005,7 @@ SUBROUTINE PEDOTRANSFER_SR2006(nsoil,sand,clay,orgm,parameters)
     call read_tiledrain_parameters()
     call read_mp_optional_parameters()
     if(iopt_irr  >= 1) call read_mp_irrigation_parameters()
+    if (sf_urban_physics == 2 .OR. sf_urban_physics == 3) read_mp_wudapt_parameters()
 
     IF( .NOT. restart ) THEN
 
