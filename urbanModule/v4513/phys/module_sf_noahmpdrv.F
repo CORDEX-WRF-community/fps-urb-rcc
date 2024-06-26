@@ -1692,20 +1692,6 @@ SUBROUTINE TRANSFER_MP_PARAMETERS(NSOIL,VEGTYPE,SOILTYPE,SLOPETYPE,SOILCOLOR,CRO
     parameters%KDT    = parameters%REFKDT * parameters%DKSAT(1) / parameters%REFDK
     parameters%SLOPE  = SLOPE_TABLE(SLOPETYPE)
 
-    IF(parameters%URBAN_FLAG)THEN  ! Hardcoding some urban parameters for soil
-       parameters%SMCMAX = 0.45 
-       parameters%SMCREF = 0.42 
-       parameters%SMCWLT = 0.40 
-       parameters%SMCDRY = 0.40 
-       parameters%CSOIL  = 3.E6
-    ENDIF
-
-! adjust FRZK parameter to actual soil type: FRZK * FRZFACT
-
-    IF(SOILTYPE(1) /= 14) then
-      FRZFACT = (parameters%SMCMAX(1) / parameters%SMCREF(1)) * (0.412 / 0.468)
-      parameters%FRZX = FRZK * FRZFACT
-    END IF
 
 ! ----------------------------------------------------------------------
 ! Transfer LCZ parameters
@@ -1718,6 +1704,21 @@ SUBROUTINE TRANSFER_MP_PARAMETERS(NSOIL,VEGTYPE,SOILTYPE,SLOPETYPE,SOILCOLOR,CRO
     
     parameters%SMCMAX_lcz = SMCMAX_lcz_TABLE(VEGTYPE-50)
     parameters%FCR_lcz = FCR_lcz_TABLE(VEGTYPE-50)
+
+    IF(parameters%URBAN_FLAG) THEN  ! Hardcoding some urban parameters for soil
+       parameters%SMCMAX = parameters%SMCMAX_lcz
+       parameters%SMCREF = 0.42 
+       parameters%SMCWLT = 0.40 
+       parameters%SMCDRY = 0.40 
+       parameters%CSOIL  = 3.E6
+    ENDIF
+
+! adjust FRZK parameter to actual soil type: FRZK * FRZFACT
+
+    IF(SOILTYPE(1) /= 14) then
+      FRZFACT = (parameters%SMCMAX(1) / parameters%SMCREF(1)) * (0.412 / 0.468)
+      parameters%FRZX = FRZK * FRZFACT
+    END IF
 
  END SUBROUTINE TRANSFER_MP_PARAMETERS
 
