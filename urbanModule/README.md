@@ -12,7 +12,7 @@ In order to be able to test sensitivity to soil infiltration additional modifica
 1. Changing maximum water capacity of the first layer of the soil (SMCMAX)
 1. Changing the fraction of frozen impermeability (FCR)
 
-In WRF ther are hard coded morphological values for soil characteristics specific for urban grid points found in `phys/module_sf_noahmpdrv.F` and `phys/module_sf_noahlsm.F`. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in `phys/module_sf_urban.F` module (see table 9) used only for the _’green roof’_. (See full analysis ![urban_infiltSens.pdf](./urban_infiltSens.pdf))
+In WRF ther are hard coded morphological values for soil characteristics specific for urban grid points found in `phys/module_sf_noahmpdrv.F` and `phys/module_sf_noahlsm.F`. NOTE: there are some discrepancies regarding hard coded values for urban grid points found in `phys/module_sf_urban.F` module (see table 9) used only for the _’green roof’_. (See partial analysis ![urban_infiltSens.pdf](./urban_infiltSens.pdf))
 
 | Acronym   | value  | description |
 | ---       | ----   | ---- |
