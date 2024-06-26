@@ -222,7 +222,7 @@ use module_wrf_error
 !
 !  AH  [ W m{-2} ]        : anthropogenic heat  ( W m{-2} in the table, converted internally to cal cm{-2} )
 !  ALH [ W m{-2} ]        : anthropogenic latent heat  ( W m{-2} in the table, converted internally to cal cm{-2} )
-!  FCR [-]                :  impermeable fraction due to frozen soil ([fraction])
+!  FCR [-]                : impermeable fraction due to frozen soil ([fraction])
 !  SMCMAX[ m{-3} ]        : Saturated soil moisture ([volumetric fraction])
 !  CAPR[ J m{-3} K{-1} ]  : heat capacity of roof ( units converted in code to [ cal cm{-3} deg{-1} ] )
 !  CAPB[ J m{-3} K{-1} ]  : heat capacity of building wall ( units converted in code to [ cal cm{-3} deg{-1} ] )
