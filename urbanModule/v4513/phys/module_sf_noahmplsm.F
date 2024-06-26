@@ -443,8 +443,8 @@ MODULE MODULE_SF_NOAHMPLSM
 !------------------------------------------------------------------------------------------!
 ! From the LCZ section from URBPARM_LCZ.TBL file
 !------------------------------------------------------------------------------------------!
-     REAL :: SMCMAX_lcz(11)     ! Saturated soil moisture ([volumetric fraction m^-3])
-     REAL :: FCR_lcz(11)        ! Impermeable fraction due to frozen soil ([fraction])
+     REAL :: SMCMAX_lcz         ! Saturated soil moisture ([volumetric fraction m^-3])
+     REAL :: FCR_lcz            ! Impermeable fraction due to frozen soil ([fraction])
 
   END TYPE noahmp_parameters
 
@@ -12378,7 +12378,7 @@ RSURF_SNOW_TABLE     = RSURF_SNOW
       POSITION='REWIND', IOSTAT=iostatus)
 
     IF (iostatus > 0) THEN
-      WRITE(*,'("WARNING: Cannot find file URBPARM_LCZ.TBL. Make sure URBPARM_LCZ.TBL (found in " +  &
+      WRITE(*,'("WARNING: Cannot find file URBPARM_LCZ.TBL. Make sure URBPARM_LCZ.TBL (found in " //  &
          "run/) is linked to the running directory")')
       CALL wrf_error_fatal("STOP in Noah-MP read_mp_lcz_parameters")
     ENDIF
@@ -12399,9 +12399,9 @@ RSURF_SNOW_TABLE     = RSURF_SNOW
          READ(string(indx+1:),*) icate
          IF (.NOT. ALLOCATED(scmcax_tbl)) THEN
             ALLOCATE( smcmax_tbl(icate), stat=allocate_status )
-            if(allocate_status /= 0) FATAL_ERROR('Error allocating SMCMAX_TBL in urban_param_init')
+            if(allocate_status /= 0) FATAL_ERROR('Error allocating SMCMAX_TBL in read_mp_lcz_parameters')
             ALLOCATE( fcr_tbl(icate), stat=allocate_status )
-            if(allocate_status /= 0) FATAL_ERROR('Error allocating FCR_TBL in urban_param_init')
+            if(allocate_status /= 0) FATAL_ERROR('Error allocating FCR_TBL in read_mp_lcz_parameters')
          ENDIF
       ELSE IF (name == "SMCMAX_URB") then
          READ(string(indx+1:),*) smcmax_tbl(1:icate)
