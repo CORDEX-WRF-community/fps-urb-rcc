@@ -104,30 +104,42 @@ simulations:
       sf_sfclay_physics: 2
     parent_id: CTRL
 
-  - simulation_id: AER1
-    simulation: No aerosol climatology data
-    description: As CTRL, but with different sfc layer scheme
+  - simulation_id: SFAE
+    simulation: Janjic MO surface layer, no aerosol climatology data
+    description: >
+      As SFL2, but with Monin-Obukhov (Janjic) scheme and no aerosols
     institution_id: CUNI
     parameters:
       sf_sfclay_physics: 2
       aer_opt: 0
     parent_id: SFL2
 
-  - simulation_id: AER2
-    simulation: Aerosols BULK 
-    description: As CTRL, but with default treatmen of aerosols
+  - simulation_id: AER0
+    simulation: No aerosol climatology data
+    description: As CTRL
+    institution_id: CUNI
+    parameters:
+      aer_opt: 0
+    parent_id: CTRL
+
+  - simulation_id: SFNO
+    simulation: No urban scheme 
+    description: As CTRL, but with Monin-Obukhov (Janjic) scheme and without urban scheme 
     institution_id: CUNI
     parameters:
       sf_sfclay_physics: 2
+      sf_urban_physics: 0
       aer_opt: 1
     parent_id: SFL2
 
-  - simulation_id: URB1
+  - simulation_id: SFU1
     simulation: SLUCM model
-    description: As CTRL run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2
+    description: As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2
     institution_id: CUNI
     parameters:
+      sf_sfclay_physics: 2
       sf_urban_physics: 1
+      aer_opt: 1
     parent_id: SFL2    
 
   - simulation_id: PBL5
