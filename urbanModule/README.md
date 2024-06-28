@@ -49,3 +49,17 @@ The Noah-MP land surface model has the following specific hard coded additional 
 In order to achieve that:
 1. New line will be introduced into `URBPARM_LCZ.TBL` with values of `SMCMAX` and `FCR` for each LCZ
 1. Insert the reading of these values and pass them to the noah-MP lsm
+
+#### WRF - NoahMP Workflow
+Land surface scheme inside WRF is used in a similar way as most of the physical schemes in WRF. 
+
+There is a main subroutine `phys/module_surface_driver.F` within which is slected which scheme to use through a Fortran `CASE` statement
+```Fortran
+  CASE (sf_surface_physics)
+    (...)
+    
+    CASE (NOAHMPSCHEME)
+    
+      CALL noahmplsm(...)
+```
+
