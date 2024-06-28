@@ -62,4 +62,32 @@ There is a main subroutine `phys/module_surface_driver.F` within which is slecte
     
       CALL noahmplsm(...)
 ```
+The subroutine `noahmplsm` is kept inside `phys/noamp/module_sf_noahmpdrv.F` and has the following initial structure:
+```Fortran
+SUBROUTINE noahmplsm ()
+(...)
+
+  JLOOP : DO J=jts,jte
+  (...)
+  ILOOP : DO I = its, ite
+  (...)
+
+  CALL TRANSFER_MP_PARAMETERS(NSOIL,VEGTYP,SOILTYP,SLOPETYP,SOILCOLOR,CROPTYPE,parameters)
+
+  (...)
+  CALL NOAHMP_SFLX (parameters, &
+```
+The subroutines `NOAHMP_SFLX` and `TRANSFER_MP_PARAMETERS` are kept inside `phys/noahmp/src/module_sf_noahmplsm.F`. The variable `parameters` is a Fortran derived `TYPE` variable which kepts a large amount of parameters (around 200) to be used for the NoahMP land model. This variable is initialized by subroutine `NOAHMP_INIT` which is called by `phys/module_physics_init.F`.
+
+##### parameters
+The Fortran derived `TYPE` variable, hosts almost 200 variables with a defined type `noahmp_parameters` defined in module `phys/noahmp/module_sf-noamplsm.F`. This is a generic variable which holds the information of multiple look-up tables specific for NoahMP (`phys/noahmp/MPTABLE.TBL`, `phys/noahmp/GENPARM.TBL`, `phys/noahmp/SOILPARM.TBL`). The variables inside `noahmp_parameters` are scalars (except for the ones that are related to soil layers, monthly values, radiation, crop stages) since they are related to single grid point values.
+
+Data in the NoahMP look-up tables has multiple dimensions related to vegetation types, types of soil and types of crops. The reading of the tables and the keeping of the multidimensional values (`[VAR]_TABLE`) is done via the module `NOAHMP_TABLES` kept inside `phys/noahmp/src/module_sf_noahmplsm.F`. To fill these tables, a series of subroutines (found in `phys/noahmp/src/noahmp_sf_noahmplsm.F`) read the look-up tables: `read_mp_veg_parameters`, `read_mp_soil_parameters`, `read_mp_rad_parameters`, `read_mp_global_parameters`, `read_mp_crop_parameters`, `read_tiledrain_parameters`, `read_mp_optional_parameters`, `read_mp_irrigation_parameters`. 
+
+The subroutine `TRANSFER_MP_PARAMETERS` is used to get the values at the specific grid point when is called inside the i,j loop by `noahmplsm` as follows:
+```Fortran
+       TRANSFER_MP_PARAMETERS(NSOIL,VEGTYP,SOILTYP,SLOPETYP,SOILCOLOR,CROPTYPE,parameters)
+```
+
+
 
