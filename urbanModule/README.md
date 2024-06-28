@@ -164,7 +164,6 @@ Then in subroutine `TRANSFER_MP_PARAMETERS`, the specific grid-points values are
        parameters%CSOIL  = 3.E6
     ENDIF
 ```
-There is still room for improvement, since additional variables can be also incorporated.
 
 Finally, in order ot make use of `FCR`, the following modification has been introduced into the subroutine `SOILWATER` (from `phys/noahmp/src/module_sf_noahmplsm.F`):
 ```Fortran
@@ -173,5 +172,6 @@ Finally, in order ot make use of `FCR`, the following modification has been intr
     IF ( parameters%urban_flag ) FCR(1)= parameters%FCR_lcz
 
 ```
+There is still room for improvement, since additional variables can be also incorporated.
 
 
