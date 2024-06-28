@@ -2,7 +2,7 @@
 
 Following Martilli et al 2002, the urban scheme computes vertical profiles at a 'urban' vertical grid for momentum, temperature and TKE. The new diagnostics will be obtained following this urban vertical profiles.
 
-The vertical profile of temperatures is called 'pt_u' inside the BEP1D subroutine (from phys/module_sf_bep.F) which computes all the terms in the column. We are going to get the values of this subroutine, since the outcome of the urban scheme is only at the surfaces of the buildings/roads and an averaged T2 following Monin-Obukhov theory (althougth recognized for not being fully correct).
+The vertical profile of temperatures is called 'pt_u(nz_um)' inside the BEP1D subroutine (from phys/module_sf_bep.F) which computes all the terms in the column. We are going to get the values of this subroutine, since the outcome of the urban scheme is only at the surfaces of the buildings/roads and an averaged T2 following Monin-Obukhov theory (althougth recognized for not being fully correct).
 
 Reference 
 Martilli, A., Clappier, A., and Rotach, M. W. (2002). [An urban surface exchange parameterisation for mesoscale models](https://link.springer.com/article/10.1023/A:1016099921195). Boundary-Layer Meteorology, 104(2):261–304.
@@ -49,3 +49,129 @@ The Noah-MP land surface model has the following specific hard coded additional 
 In order to achieve that:
 1. New line will be introduced into `URBPARM_LCZ.TBL` with values of `SMCMAX` and `FCR` for each LCZ
 1. Insert the reading of these values and pass them to the noah-MP lsm
+
+#### WRF - NoahMP Workflow
+Land surface scheme inside WRF is used in a similar way as most of the physical schemes in WRF. 
+
+There is a main subroutine `phys/module_surface_driver.F` within which is slected which scheme to use through a Fortran `CASE` statement
+```Fortran
+  CASE (sf_surface_physics)
+    (...)
+    
+    CASE (NOAHMPSCHEME)
+    
+      CALL noahmplsm(...)
+```
+The subroutine `noahmplsm` is kept inside `phys/noamp/module_sf_noahmpdrv.F` and has the following initial structure:
+```Fortran
+SUBROUTINE noahmplsm ()
+(...)
+
+  JLOOP : DO J=jts,jte
+  (...)
+  ILOOP : DO I = its, ite
+  (...)
+
+  CALL TRANSFER_MP_PARAMETERS(NSOIL,VEGTYP,SOILTYP,SLOPETYP,SOILCOLOR,CROPTYPE,parameters)
+
+  (...)
+  CALL NOAHMP_SFLX (parameters, &
+```
+The subroutines `NOAHMP_SFLX` and `TRANSFER_MP_PARAMETERS` are kept inside `phys/noahmp/src/module_sf_noahmplsm.F`. The variable `parameters` is a Fortran derived `TYPE` variable which kepts a large amount of parameters (around 200) to be used for the NoahMP land model. This variable is initialized by subroutine `NOAHMP_INIT` which is called by `phys/module_physics_init.F`.
+
+Finally inside the subroutine `NOAHMP_SFLX` all the calculations and dynamics of the soil are performed by calling different subroutines:
+```Fortran
+(...)
+   CALL ATM (parameters, ...
+(...)
+     CALL PHENOLOGY (parameters, ...
+(...)
+    CALL PRECIP_HEAT(parameters, ...
+(...)
+    CALL ENERGY (parameters, ...
+(...)
+     CALL WATER (parameters, ...
+(...)
+     CALL CARBON (parameters, ...
+(...)
+     CALL ERROR (parameters, ...
+```
+
+##### parameters
+The Fortran derived `TYPE` variable, hosts almost 200 variables with a defined type `noahmp_parameters` defined in module `phys/noahmp/src/module_sf_noahmplsm.F`. This is a generic variable which holds the information of multiple look-up tables specific for NoahMP (`phys/noahmp/MPTABLE.TBL`, `phys/noahmp/GENPARM.TBL`, `phys/noahmp/SOILPARM.TBL`). The variables inside `noahmp_parameters` are scalars (except for the ones that are related to soil layers, monthly values, radiation, crop stages) since they are related to single grid point values.
+
+Data in the NoahMP look-up tables has multiple dimensions related to vegetation types, types of soil and types of crops. The reading of the tables and the keeping of the multidimensional values (`[VAR]_TABLE`) is done via the module `NOAHMP_TABLES` kept inside `phys/noahmp/src/module_sf_noahmplsm.F`. To fill these tables, a series of subroutines (found in `phys/noahmp/src/noahmp_sf_noahmplsm.F`) read the look-up tables: `read_mp_veg_parameters`, `read_mp_soil_parameters`, `read_mp_rad_parameters`, `read_mp_global_parameters`, `read_mp_crop_parameters`, `read_tiledrain_parameters`, `read_mp_optional_parameters`, `read_mp_irrigation_parameters`. 
+
+The subroutine `TRANSFER_MP_PARAMETERS` is used to get the values at the specific grid point when is called inside the i,j loop by `noahmplsm` as follows:
+```Fortran
+       TRANSFER_MP_PARAMETERS(NSOIL,VEGTYP,SOILTYP,SLOPETYP,SOILCOLOR,CROPTYPE,parameters)
+```
+
+##### Rationale: urban parameters
+Because the variable `parameters` is used in all the different calls along the NoahMP lsm, if we want to be able to modify the hard coded values, the most logial way would be to introduce them inside `parameters` and because they are solely related to the LCZs, read the values directly from the `URBPARM_LCZ.TBL`.
+
+Two new variables have been directly added into the `URBPARM_LCZ.TBL`
+```
+(...)
+#
+# SMCMAX_URB: Saturated soil moisture [volumetric fraction]
+#      (sf_urban_physics=2,3)
+#
+#
+SMCMAX_URB: 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45
+
+#
+# FCR_URB: impermeable fraction due to frozen soil (fraction)
+#      (sf_urban_physics=2,3)
+#
+#
+FCR_URB: 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95, 0.95
+
+#
+# CAPR:  Heat capacity of roof  [ J m{-3} K{-1} ]
+(...)
+```
+`URBPARM_LCZ.TBL` is read by subroutine `urban_param_init` (from `phys/module_sf_urban.F`). Therfore the subroutine is modified to be able to read the new variables
+
+NoahMP lsm does not use `URBPARM_LCZ.TBL` it only gets values from its look-up tables from `phys/noamp/parameters`. Therfore in order to include values from `URBPARM_LCZ.TBL` a new subroutine is written called `read_mp_lcz_parameters` (located in `phys/noahmp/src/module_sf_noahmplsm.F`) which is an hybrid between the existing `read_mp_[values]` and `urban_param_init`. The LCZ retrieved `SMCMAX` and `FCR` are kept as:
+```Fortran
+(...)
+    SMCMAX_lcz_TABLE(1:NLCZ) = smcmax_tbl(1:icate)
+    FCR_lcz_TABLE(1:NLCZ) = fcr_tbl(1:icate)
+```
+being `NLCZ` and `icate` the amount of LCZ categories (hard coded to 11 in the case of `NLCZ`).
+
+Then in subroutine `TRANSFER_MP_PARAMETERS`, the specific grid-points values are passed as:
+```Fortran
+(...)
+! ----------------------------------------------------------------------
+! Transfer LCZ parameters
+! ----------------------------------------------------------------------
+    ! LCZ start at 51 (at least in version v4.5.1)
+    IF (parameters%LCZ_1_TABLE /= 51) THEN
+      CALL wrf_error_fatal( "module_sf_noahmpdrv.F: transfer_mp_parameters: wrong value " //          &
+        "for LCZ_1. It is not 51 !!" )
+    END IF
+    
+    parameters%SMCMAX_lcz = SMCMAX_lcz_TABLE(VEGTYPE-50)
+    parameters%FCR_lcz = FCR_lcz_TABLE(VEGTYPE-50)
+
+    IF(parameters%URBAN_FLAG) THEN  ! Hardcoding some urban parameters for soil
+       parameters%SMCMAX = parameters%SMCMAX_lcz
+       parameters%SMCREF = 0.42 
+       parameters%SMCWLT = 0.40 
+       parameters%SMCDRY = 0.40 
+       parameters%CSOIL  = 3.E6
+    ENDIF
+```
+
+Finally, in order ot make use of `FCR`, the following modification has been introduced into the subroutine `SOILWATER` (from `phys/noahmp/src/module_sf_noahmplsm.F`):
+```Fortran
+(...)
+!jref impermable surface at urban
+    IF ( parameters%urban_flag ) FCR(1)= parameters%FCR_lcz
+
+```
+There is still room for improvement, since additional variables can be also incorporated.
+
+
