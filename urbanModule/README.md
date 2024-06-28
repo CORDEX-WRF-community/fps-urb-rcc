@@ -79,6 +79,24 @@ SUBROUTINE noahmplsm ()
 ```
 The subroutines `NOAHMP_SFLX` and `TRANSFER_MP_PARAMETERS` are kept inside `phys/noahmp/src/module_sf_noahmplsm.F`. The variable `parameters` is a Fortran derived `TYPE` variable which kepts a large amount of parameters (around 200) to be used for the NoahMP land model. This variable is initialized by subroutine `NOAHMP_INIT` which is called by `phys/module_physics_init.F`.
 
+Finally inside the subroutine `NOAHMP_SFLX` all the calculations and dynamics of the soil are performed by calling different subroutines:
+```Fortran
+(...)
+   CALL ATM (parameters, ...
+(...)
+     CALL PHENOLOGY (parameters, ...
+(...)
+    CALL PRECIP_HEAT(parameters, ...
+(...)
+    CALL ENERGY (parameters, ...
+(...)
+     CALL WATER (parameters, ...
+(...)
+     CALL CARBON (parameters, ...
+(...)
+     CALL ERROR (parameters, ...
+```
+
 ##### parameters
 The Fortran derived `TYPE` variable, hosts almost 200 variables with a defined type `noahmp_parameters` defined in module `phys/noahmp/module_sf-noamplsm.F`. This is a generic variable which holds the information of multiple look-up tables specific for NoahMP (`phys/noahmp/MPTABLE.TBL`, `phys/noahmp/GENPARM.TBL`, `phys/noahmp/SOILPARM.TBL`). The variables inside `noahmp_parameters` are scalars (except for the ones that are related to soil layers, monthly values, radiation, crop stages) since they are related to single grid point values.
 
@@ -89,5 +107,7 @@ The subroutine `TRANSFER_MP_PARAMETERS` is used to get the values at the specifi
        TRANSFER_MP_PARAMETERS(NSOIL,VEGTYP,SOILTYP,SLOPETYP,SOILCOLOR,CROPTYPE,parameters)
 ```
 
+##### Rationale: urban parameters
+Because the variable `parameters` is used in all the different calls along the NoahMP lsm, if we want to be able to modify the hard coded values, the most logial way would be to introduce them inside `parameters` and because they are solely related to the LCZs, read the values directly from the `URBPARM_LCZ.TBL`.
 
 
