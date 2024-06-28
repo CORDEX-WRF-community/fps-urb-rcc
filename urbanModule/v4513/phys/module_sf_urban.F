@@ -1850,7 +1850,7 @@ ENDIF
 !
 !===============================================================================
    SUBROUTINE read_param(UTYPE,                                        & ! in
-                         ZR,SIGMA_ZED,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,SMCX,FCR & ! out
+                         ZR,SIGMA_ZED,Z0C,Z0HC,ZDC,SVF,R,RW,HGT,AH,SMCX,FCR, & ! out
                          CAPR,CAPB,CAPG,AKSR,AKSB,AKSG,ALBR,ALBB,ALBG, & ! out
                          EPSR,EPSB,EPSG,Z0R,Z0B,Z0G,Z0HB,Z0HG,         & ! out
                          BETR,BETB,BETG,TRLEND,TBLEND,TGLEND,          & ! out
