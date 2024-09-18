@@ -68,6 +68,14 @@ simulations:
     parameters:
     parent_id: DPAR
 
+  - simulation_id: CVAR
+    simulation: Intenal Variability run 
+    description: >
+      As DPAR, but started 1 day after (2nd March 2020)
+    institution_id: UCAN
+    parameters:
+    parent_id: DPAR
+
   - simulation_id: ALPX
     simulation: Extended convection-permitting domain (I4C ALPX-3)
     description: >
