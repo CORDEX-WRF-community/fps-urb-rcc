@@ -76,6 +76,14 @@ simulations:
     parameters:
     parent_id: DPAR
 
+  - simulation_id: LVAR
+    simulation: Intenal Variability run 
+    description: >
+      As CTRL, but conducted on the LUMI HPC with WRF compiled with gcc
+    institution_id: UCAN
+    parameters:
+    parent_id: CTRL
+
   - simulation_id: ALPX
     simulation: Extended convection-permitting domain (I4C ALPX-3)
     description: >
