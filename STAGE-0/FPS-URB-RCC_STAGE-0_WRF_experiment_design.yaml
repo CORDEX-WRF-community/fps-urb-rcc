@@ -1,29 +1,193 @@
 simulations:
 
   - simulation_id: CTRL
-    simulation: Control simulation
+    simulation: Control simulation,  realization 1
     description: >
-      EUR-12 -> PAR-3 nesting. 
-      WUDAPT LCZs on LANDMATE_PFT data.
-      BEP-BEM with updated building morphological parameters for Madrid
-    institution_id: UCAN,IPSL,CYI,IDL-FCUL,CIMA,UCL,AUTH-MC,FUDAN
-    parameters:
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: AUTH-MC
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60 
+    parent_id: 
 
-  - simulation_id: URB2
-    simulation: BEP model
-    description: As CTRL run, but with BEP urban model
+  - simulation_id: CTRL_r2
+    simulation: Control simulation, realization 2
+    version_realization_info: >
+      Realization r2 is an HPC sensitivity simulation perfored on xxx HPC
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
     institution_id: CIMA
-    parameters:
-      sf_urban_physics: 2
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60   
+    parent_id: CTRL 
+        
+  - simulation_id: CTRL_r3
+    simulation: Control simulation, realization 3
+    version_realization_info: >
+      Realization r3 is an HPC sensitivity simulation perfored on xxx HPC
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: CYI
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60   
     parent_id: CTRL
-    
+            
+  - simulation_id: CTRL_r4
+    simulation: Control simulation, realization 4
+    version_realization_info: >
+      Realization r4 is an HPC sensitivity simulation perfored on xxx HPC
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: FUDAN
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60    
+    parent_id: CTRL
+            
+  - simulation_id: CTRL_r5
+    simulation: Control simulation, realization 5
+    version_realization_info: >
+      Realization r5 is an HPC sensitivity simulation
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: IDL-FCUL
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60 
+    parent_id: CTRL  
+        
+  - simulation_id: CTRL_r6
+    simulation: Control simulation, realization 6
+    version_realization_info: >
+      Realization r6 is an HPC sensitivity simulation perfored on xxx HPC
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: IPSL
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60   
+    parent_id: CTRL
+        
+  - simulation_id: CTRL_r7
+    simulation: Control simulation, realization 7 perfored on CESGA HPC
+    version_realization_info: >
+      Realization r7 is an HPC sensitivity simulation
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: UCAN
+    status: published
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60    
+    parent_id: CTRL
+        
+  - simulation_id: CTRL_r8
+    simulation: Control simulation, realization 8 perfored on LUMI HPC
+    version_realization_info: >
+      Realization r8 is an HPC sensitivity simulation
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: UCAN    
+    status: completed
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60    
+    parent_id: CTRL
+        
+  - simulation_id: CTRL_r9
+    simulation: Control simulation, realization 9 perfored on xxx HPC
+    version_realization_info: >
+      Realization r9 is an HPC sensitivity simulation
+    description: >
+      EUR-12->PAR-3 nesting;
+      WUDAPT LCZs on LANDMATE_PFT;
+      BEP-BEM with URBAN parameters for Madrid
+    institution_id: UCL
+    status: completed
+    parameters: >
+      sf_sfclay_physics: 1
+      sf_urban_physics: 3
+      bl_pbl_physics: 8
+      mp_physics: 8
+      e_vert: 60   
+    parent_id: CTRL
+
   - simulation_id: URB0
     simulation: No urban parameterization, but with urban category in LU data
     description: As CTRL run, but urban model sitched off
     institution_id: CYI
+    status: published
     parameters:
       sf_urban_physics: 0
-    parent_id: CTRL
+    parent_id: CTRL_r3
+
+  - simulation_id: PBL5
+    simulation: MYNN 2.5 PBL scheme
+    description: >
+      As CTRL, but with MYNN 2.5 PBL scheme
+    institution_id: IDL-FCUL
+    status: completed
+    parameters:
+      bl_pbl_physics: 5
+    parent_id: CTRL_r5
+
+  - simulation_id: PBL1
+    simulation: YSU PBL scheme
+    description: >
+      As CTRL, but with YSU PBL scheme
+    institution_id: IDL-FCUL
+    status: published
+    parameters:
+      bl_pbl_physics: 1
+    parent_id: CTRL_r5
 
   - simulation_id: NOUR
     simulation: No urban areas
@@ -31,107 +195,65 @@ simulations:
       As CTRL, but without urban category in LU static data, cities replaced 
       with nearest neighbour LU categories using w2w.py
     institution_id: IPSL
+    status: published
     parameters:
-    parent_id: CTRL
+    parent_id: CTRL_r6
 
-  - simulation_id: NOLZ
-    simulation: No LCZ categories
-    description: >
-      As CTRL, but without LCZ categories. geo_em files directly from WPS,
-      without w2w tool applied.
-    institution_id: IPSL
-    parameters:
-    parent_id: CTRL
-
-  - simulation_id: DURC
-    simulation: Default urban categories
-    description: >
-      As CTRL, but with the default MODIS land-use data, also for urban category
-    institution_id: ""
-    parameters:
-    parent_id: CTRL
-    
-  - simulation_id: DPAR
-    simulation: Default WRF urban parameters
-    description: >
-      As CTRL, but with default urban parameters instead those used in CTRL run,
-      the version updated for Madrid.
-    institution_id: UCAN
-    parameters:
-    parent_id: CTRL
-    
   - simulation_id: COLC
     simulation: Corine land cover
     description: >
       As DPAR, but with the default CORINE land-use data
     institution_id: UCAN
+    status: published
     parameters:
     parent_id: DPAR
-
-  - simulation_id: CVAR
-    simulation: Intenal Variability run 
+    
+  - simulation_id: DPAR
+    simulation: Default WRF urban parameters perfored on CESGA HPC
     description: >
-      As DPAR, but started 1 day after (2nd March 2020)
+      As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
     institution_id: UCAN
+    status: published
+    parameters:
+    parent_id: CTRL_r7
+    
+  - simulation_id: DPAR_r2
+    simulation: DPAR simulation, realization 2 
+    version_realization_info: >
+      Realization r2 is started 1 day after (2nd March 2020), Internal Variablity (IV) run
+    description: >
+      As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
+    institution_id: UCAN
+    status: published
     parameters:
     parent_id: DPAR
-
-  - simulation_id: LVAR
-    simulation: Intenal Variability run 
-    description: >
-      As CTRL, but conducted on the LUMI HPC with WRF compiled with gcc
-    institution_id: UCAN
-    parameters:
-    parent_id: CTRL
-
+    
   - simulation_id: ALPX
     simulation: Extended convection-permitting domain (I4C ALPX-3)
     description: >
       As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
     institution_id: UCAN
+    status: published
     parameters:
-    parent_id: CTRL
-
+    parent_id: CTRL_r7
+    
   - simulation_id: CI4C
     simulation: Full configuration from I4C
     description: >
-      As ALPX, but including the exact configuration used in I4C
+      As ALPX, but with the exact WRF configuration used in I4C
     institution_id: UCAN
+    status: completed
     parameters:
-      sf_urban_physics: 1 # SLUCM
-      bl_pbl_physics: 8   # Bougeault and Lacarrere (BouLac) PBL
+      sf_urban_physics: 1 
+      bl_pbl_physics: 8   
       e_vert: 54
     parent_id: ALPX
-
-  - simulation_id: CHEM
-    simulation: Chemical transport model (WRF-CHEM) switched on
-    description: >
-      As CTRL, but with the options from the chemical transport model (WRF-CHEM)
-    institution_id: UM
-    parameters:
-    parent_id: CTRL
-
-  - simulation_id: SFL2
-    simulation: Janjic MO surface layer
-    description: >
-      As CTRL, but with Monin-Obukhov (Janjic) scheme
-    institution_id: CUNI
-    parameters:
-      sf_sfclay_physics: 2
-    parent_id: CTRL
-
-  - simulation_id: AER0
-    simulation: No aerosol climatology data
-    description: As CTRL, but without aerosols
-    institution_id: CUNI
-    parameters:
-      aer_opt: 0
-    parent_id: CTRL
 
   - simulation_id: SFAE
     simulation: Janjic MO surface layer and no aerosol climatology data
     description: As SFL2, but without aerosols
     institution_id: CUNI
+    status: published
     parameters:
       sf_sfclay_physics: 2
       aer_opt: 0
@@ -141,6 +263,7 @@ simulations:
     simulation: SLUCM model
     description: As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2
     institution_id: CUNI
+    status: published
     parameters:
       sf_sfclay_physics: 2
       sf_urban_physics: 1
@@ -150,27 +273,39 @@ simulations:
     simulation: No urban model
     description: As SFL2 run, but without urban model
     institution_id: CUNI
+    status: published
     parameters:
       sf_sfclay_physics: 2
       sf_urban_physics: 0
     parent_id: SFL2 
 
-  - simulation_id: PBL5
-    simulation: MYNN 2.5 PBL scheme
+
+  - simulation_id: SFL2
+    simulation: Janjic MO surface layer
     description: >
-      As CTRL, but with MYNN 2.5 PBL scheme
-    institution_id: IDL-FCUL
+      As CTRL, but with Monin-Obukhov (Janjic) scheme
+    institution_id: CUNI
+    status: published
     parameters:
-      bl_pbl_physics: 5
+      sf_sfclay_physics: 2
     parent_id: CTRL
 
-  - simulation_id: PBL1
-    simulation: YSU PBL scheme
-    description: >
-      As CTRL, but with YSU PBL scheme
-    institution_id: IDL-FCUL
+  - simulation_id: AER0
+    simulation: No aerosol climatology data
+    description: As CTRL, but without aerosols
+    institution_id: CUNI
+    status: published
     parameters:
-      bl_pbl_physics: 1
+      aer_opt: 0
+    parent_id: CTRL
+
+  - simulation_id: CHEM
+    simulation: Chemical transport model (WRF-CHEM) switched on
+    description: >
+      As CTRL, but with chemical transport model (WRF-CHEM) on
+    institution_id: UM
+    status: planned
+    parameters:
     parent_id: CTRL
 
   - simulation_id: MICR
@@ -178,6 +313,16 @@ simulations:
     description: >
       As CTRL, but with P3 microphysics scheme
     institution_id: AUTH-MC
+    status: published
     parameters:
       mp_physics: 52
     parent_id: CTRL
+    
+  - simulation_id: URB2
+    simulation: BEP model
+    description: As CTRL run, but with BEP urban model
+    institution_id: CIMA
+    status: published
+    parameters:
+      sf_urban_physics: 2
+    parent_id: CTRL_r2
