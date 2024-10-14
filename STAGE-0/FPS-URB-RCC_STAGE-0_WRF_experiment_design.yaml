@@ -2,13 +2,13 @@ simulations:
 
   - simulation_id: CTRL
     simulation: Control simulation,  realization 1
-    description: >
+    description: &ctrl_desc >
       EUR-12->PAR-3 nesting;
       WUDAPT LCZs on LANDMATE_PFT;
       BEP-BEM with URBAN parameters for Madrid
     institution_id: AUTH-MC
     status: published
-    parameters: >
+    parameters: &ctrl_param
       sf_sfclay_physics: 1
       sf_urban_physics: 3
       bl_pbl_physics: 8
@@ -19,145 +19,81 @@ simulations:
   - simulation_id: CTRL_r2
     simulation: Control simulation, realization 2
     version_realization_info: >
-      Realization r2 is an HPC sensitivity simulation perfored on xxx HPC
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r2 is an HPC sensitivity simulation performed on xxx HPC
+    description: *ctrl_desc
     institution_id: CIMA
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60   
+    parameters: *ctrl_param
     parent_id: CTRL 
         
   - simulation_id: CTRL_r3
     simulation: Control simulation, realization 3
     version_realization_info: >
-      Realization r3 is an HPC sensitivity simulation perfored on xxx HPC
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r3 is an HPC sensitivity simulation performed on xxx HPC
+    description: *ctrl_desc
     institution_id: CYI
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60   
+    parameters: *ctrl_param   
     parent_id: CTRL
             
   - simulation_id: CTRL_r4
     simulation: Control simulation, realization 4
     version_realization_info: >
-      Realization r4 is an HPC sensitivity simulation perfored on xxx HPC
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r4 is an HPC sensitivity simulation performed on xxx HPC
+    description: *ctrl_desc
     institution_id: FUDAN
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60    
+    parameters: *ctrl_param    
     parent_id: CTRL
             
   - simulation_id: CTRL_r5
     simulation: Control simulation, realization 5
     version_realization_info: >
       Realization r5 is an HPC sensitivity simulation
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+    description: *ctrl_desc
     institution_id: IDL-FCUL
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60 
+    parameters: *ctrl_param 
     parent_id: CTRL  
         
   - simulation_id: CTRL_r6
     simulation: Control simulation, realization 6
     version_realization_info: >
-      Realization r6 is an HPC sensitivity simulation perfored on xxx HPC
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r6 is an HPC sensitivity simulation performed on xxx HPC
+    description: *ctrl_desc
     institution_id: IPSL
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60   
+    parameters: *ctrl_param   
     parent_id: CTRL
         
   - simulation_id: CTRL_r7
-    simulation: Control simulation, realization 7 perfored on CESGA HPC
+    simulation: Control simulation, realization 7
     version_realization_info: >
-      Realization r7 is an HPC sensitivity simulation
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r7 is an HPC sensitivity simulation performed on CESGA HPC
+    description: *ctrl_desc
     institution_id: UCAN
     status: published
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60    
+    parameters: *ctrl_param    
     parent_id: CTRL
         
   - simulation_id: CTRL_r8
-    simulation: Control simulation, realization 8 perfored on LUMI HPC
+    simulation: Control simulation, realization 8
     version_realization_info: >
-      Realization r8 is an HPC sensitivity simulation
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+      Realization r8 is an HPC sensitivity simulation performed on LUMI HPC
+    description: *ctrl_desc
     institution_id: UCAN    
     status: completed
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60    
+    parameters: *ctrl_param    
     parent_id: CTRL
         
   - simulation_id: CTRL_r9
-    simulation: Control simulation, realization 9 perfored on xxx HPC
+    simulation: Control simulation, realization 9 performed on xxx HPC
     version_realization_info: >
       Realization r9 is an HPC sensitivity simulation
-    description: >
-      EUR-12->PAR-3 nesting;
-      WUDAPT LCZs on LANDMATE_PFT;
-      BEP-BEM with URBAN parameters for Madrid
+    description: *ctrl_desc
     institution_id: UCL
     status: completed
-    parameters: >
-      sf_sfclay_physics: 1
-      sf_urban_physics: 3
-      bl_pbl_physics: 8
-      mp_physics: 8
-      e_vert: 60   
+    parameters: *ctrl_param   
     parent_id: CTRL
 
   - simulation_id: URB0
@@ -209,8 +145,8 @@ simulations:
     parent_id: DPAR
     
   - simulation_id: DPAR
-    simulation: Default WRF urban parameters perfored on CESGA HPC
-    description: >
+    simulation: Default WRF urban parameters performed on CESGA HPC
+    description: &dpar_desc >
       As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
     institution_id: UCAN
     status: published
@@ -220,9 +156,8 @@ simulations:
   - simulation_id: DPAR_r2
     simulation: DPAR simulation, realization 2 
     version_realization_info: >
-      Realization r2 is started 1 day after (2nd March 2020), Internal Variablity (IV) run
-    description: >
-      As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
+      Realization r2 is an internal variability run, started 1 day after (2nd March 2020).
+    description: *dpar_desc
     institution_id: UCAN
     status: published
     parameters:

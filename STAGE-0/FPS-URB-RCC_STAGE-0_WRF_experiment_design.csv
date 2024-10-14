@@ -1,0 +1,47 @@
+simulation_id,parent_id,simulation,institution_id,parameters,description,status
+CTRL,,"Control simulation,  realization 1",AUTH-MC,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r2,CTRL,"Control simulation, realization 2",CIMA,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r3,CTRL,"Control simulation, realization 3",CYI,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r4,CTRL,"Control simulation, realization 4",FUDAN,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r5,CTRL,"Control simulation, realization 5",IDL-FCUL,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r6,CTRL,"Control simulation, realization 6",IPSL,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r7,CTRL,"Control simulation, realization 7",UCAN,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",published
+CTRL_r8,CTRL,"Control simulation, realization 8",UCAN,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",completed
+CTRL_r9,CTRL,"Control simulation, realization 9 performed on xxx HPC",UCL,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}","EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+",completed
+URB0,CTRL_r3,"No urban parameterization, but with urban category in LU data",CYI,{'sf_urban_physics': 0},"As CTRL run, but urban model sitched off",published
+PBL5,CTRL_r5,MYNN 2.5 PBL scheme,IDL-FCUL,{'bl_pbl_physics': 5},"As CTRL, but with MYNN 2.5 PBL scheme
+",completed
+PBL1,CTRL_r5,YSU PBL scheme,IDL-FCUL,{'bl_pbl_physics': 1},"As CTRL, but with YSU PBL scheme
+",published
+NOUR,CTRL_r6,No urban areas,IPSL,,"As CTRL, but without urban category in LU static data, cities replaced  with nearest neighbour LU categories using w2w.py
+",published
+COLC,DPAR,Corine land cover,UCAN,,"As DPAR, but with the default CORINE land-use data
+",published
+DPAR,CTRL_r7,Default WRF urban parameters performed on CESGA HPC,UCAN,,"As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
+",published
+DPAR_r2,DPAR,"DPAR simulation, realization 2",UCAN,,"As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run
+",published
+ALPX,CTRL_r7,Extended convection-permitting domain (I4C ALPX-3),UCAN,,"As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)
+",published
+CI4C,ALPX,Full configuration from I4C,UCAN,"{'sf_urban_physics': 1, 'bl_pbl_physics': 8, 'e_vert': 54}","As ALPX, but with the exact WRF configuration used in I4C
+",completed
+SFAE,SFL2,Janjic MO surface layer and no aerosol climatology data,CUNI,"{'sf_sfclay_physics': 2, 'aer_opt': 0}","As SFL2, but without aerosols",published
+SFU1,SFL2,SLUCM model,CUNI,"{'sf_sfclay_physics': 2, 'sf_urban_physics': 1}","As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2",published
+SFNO,SFL2,No urban model,CUNI,"{'sf_sfclay_physics': 2, 'sf_urban_physics': 0}","As SFL2 run, but without urban model",published
+SFL2,CTRL,Janjic MO surface layer,CUNI,{'sf_sfclay_physics': 2},"As CTRL, but with Monin-Obukhov (Janjic) scheme
+",published
+AER0,CTRL,No aerosol climatology data,CUNI,{'aer_opt': 0},"As CTRL, but without aerosols",published
+CHEM,CTRL,Chemical transport model (WRF-CHEM) switched on,UM,,"As CTRL, but with chemical transport model (WRF-CHEM) on
+",planned
+MICR,CTRL,P3 microphysics scheme,AUTH-MC,{'mp_physics': 52},"As CTRL, but with P3 microphysics scheme
+",published
+URB2,CTRL_r2,BEP model,CIMA,{'sf_urban_physics': 2},"As CTRL run, but with BEP urban model",published
