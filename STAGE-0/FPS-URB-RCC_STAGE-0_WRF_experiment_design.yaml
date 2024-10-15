@@ -217,8 +217,7 @@ simulations:
 
   - simulation_id: SFL2
     simulation: Janjic MO surface layer
-    description: >
-      As CTRL, but with Monin-Obukhov (Janjic) scheme
+    description: As CTRL, but with Monin-Obukhov (Janjic) scheme
     institution_id: CUNI
     status: published
     parameters:
@@ -236,8 +235,7 @@ simulations:
 
   - simulation_id: CHEM
     simulation: Chemical transport model (WRF-CHEM) switched on
-    description: >
-      As CTRL, but with chemical transport model (WRF-CHEM) on
+    description: As CTRL, but with chemical transport model (WRF-CHEM) on
     institution_id: UM
     status: planned
     parameters:
@@ -245,8 +243,7 @@ simulations:
 
   - simulation_id: MICR
     simulation: P3 microphysics scheme
-    description: >
-      As CTRL, but with P3 microphysics scheme
+    description: As CTRL, but with P3 microphysics scheme
     institution_id: AUTH-MC
     status: published
     parameters:
