@@ -1,0 +1,11 @@
+name: base
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python
+  - natsort
+  - networkx
+  - pandas
+  - seaborn
+  - pyyaml

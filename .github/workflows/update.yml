@@ -1,0 +1,44 @@
+name: Update
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ main ]
+    paths:
+      - STAGE-0/FPS-URB-RCC_STAGE-0_WRF_experiment_design.yaml
+  pull_request:
+    branches: [ main ]
+    paths:
+      - STAGE-0/FPS-URB-RCC_STAGE-0_WRF_experiment_design.yaml
+
+jobs:
+  update-tables:
+
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -el {0}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        environment-file: environment.yml
+
+    - name: Update CSVs
+      run: |
+        which -a python
+        conda activate test
+        cd STAGE-0/
+        python exp_design.py
+       
+    - name: Commit
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git commit -am "[Actions] Update"
+        git push
