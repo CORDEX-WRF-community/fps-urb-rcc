@@ -183,6 +183,16 @@ simulations:
       bl_pbl_physics: 8   
       e_vert: 54
     parent_id: ALPX
+    
+  - simulation_id: NOAC
+    simulation: No AC in URB3 model
+    description: >
+      As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL
+    institution_id: UCL
+    status: completed
+    parameters:
+    parent_id: CTRL_r9
+        
 
   - simulation_id: SFAE
     simulation: Janjic MO surface layer and no aerosol climatology data
