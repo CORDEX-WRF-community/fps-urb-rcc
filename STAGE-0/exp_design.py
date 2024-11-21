@@ -80,6 +80,10 @@ def plot_graph(simul_data):
             color_map.append('white')
             node_border_colors.append('red')
             node_border_widths.append(3)
+        elif status in ["running"]:
+            color_map.append('white')
+            node_border_colors.append('green')
+            node_border_widths.append(3)
         else:
             print(f'Status of the simuation', node, 'not known, check!')  # Nodes not published or completed will be white
             exit()
@@ -108,6 +112,7 @@ def plot_graph(simul_data):
     legend_elements = [
         Patch(facecolor='white', edgecolor='black', label='Published'),
         Patch(facecolor='white', edgecolor='blue', label='Completed'),
+        Patch(facecolor='white', edgecolor='green', label='Running'),
         Patch(facecolor='white', edgecolor='red', label='Planned'),
     ]
 

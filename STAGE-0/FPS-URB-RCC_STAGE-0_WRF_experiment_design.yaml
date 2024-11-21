@@ -82,7 +82,7 @@ simulations:
       Realization r8 is an HPC sensitivity simulation performed on LUMI HPC
     description: *ctrl_desc
     institution_id: UCAN    
-    status: completed
+    status: published
     parameters: *ctrl_param    
     parent_id: CTRL
         
@@ -177,7 +177,7 @@ simulations:
     description: >
       As ALPX, but with the exact WRF configuration used in I4C
     institution_id: UCAN
-    status: completed
+    status: published
     parameters:
       sf_urban_physics: 1 
       bl_pbl_physics: 8   
@@ -247,7 +247,7 @@ simulations:
     simulation: Chemical transport model (WRF-CHEM) switched on
     description: As CTRL, but with chemical transport model (WRF-CHEM) on
     institution_id: UM
-    status: planned
+    status: running
     parameters:
     parent_id: CTRL
 

@@ -6,7 +6,7 @@ WRF451R-CTRL,v1-fpsurbrcc-s0r4,FUDAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZ
 WRF451R-CTRL,v1-fpsurbrcc-s0r5,IDL-FCUL,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r6,IPSL,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r7,UCAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
-WRF451R-CTRL,v1-fpsurbrcc-s0r8,UCAN,completed,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+WRF451R-CTRL,v1-fpsurbrcc-s0r8,UCAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r9,UCL,completed,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-URB0,v1-fpsurbrcc-s0r1,CYI,published,"As CTRL run, but urban model sitched off"
 WRF451R-PBL5,v1-fpsurbrcc-s0r1,IDL-FCUL,completed,"As CTRL, but with MYNN 2.5 PBL scheme"
@@ -16,13 +16,13 @@ WRF451R-COLC,v1-fpsurbrcc-s0r1,UCAN,published,"As DPAR, but with the default COR
 WRF451R-DPAR,v1-fpsurbrcc-s0r1,UCAN,published,"As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run"
 WRF451R-DPAR,v1-fpsurbrcc-s0r2,UCAN,published,"As CTRL, but with default urban parameters instead Madrid parameters used in CTRL run"
 WRF451R-ALPX,v1-fpsurbrcc-s0r1,UCAN,published,"As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)"
-WRF451R-CI4C,v1-fpsurbrcc-s0r1,UCAN,completed,"As ALPX, but with the exact WRF configuration used in I4C"
+WRF451R-CI4C,v1-fpsurbrcc-s0r1,UCAN,published,"As ALPX, but with the exact WRF configuration used in I4C"
 WRF451R-NOAC,v1-fpsurbrcc-s0r1,UCL,completed,"As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL"
 WRF451R-SFAE,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2, but without aerosols"
 WRF451R-SFU1,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2"
 WRF451R-SFNO,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2 run, but without urban model"
 WRF451R-SFL2,v1-fpsurbrcc-s0r1,CUNI,published,"As CTRL, but with Monin-Obukhov (Janjic) scheme"
 WRF451R-AER0,v1-fpsurbrcc-s0r1,CUNI,published,"As CTRL, but without aerosols"
-WRF451R-CHEM,v1-fpsurbrcc-s0r1,UM,planned,"As CTRL, but with chemical transport model (WRF-CHEM) on"
+WRF451R-CHEM,v1-fpsurbrcc-s0r1,UM,running,"As CTRL, but with chemical transport model (WRF-CHEM) on"
 WRF451R-MICR,v1-fpsurbrcc-s0r1,AUTH-MC,published,"As CTRL, but with P3 microphysics scheme"
 WRF451R-URB2,v1-fpsurbrcc-s0r1,CIMA,published,"As CTRL run, but with BEP urban model"
