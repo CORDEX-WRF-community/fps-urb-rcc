@@ -137,7 +137,7 @@ if __name__ == '__main__':
         df = pd.concat([df, pd.DataFrame([sim])], ignore_index=True)
     df.set_index("simulation_id", inplace=True)
     df['description'] = df['description'].str.strip()
-    df = df[["parent_id", "simulation", "institution_id", "parameters", "description", "status"]]
+    df = df[["parent_id", "simulation", "institution_id", "parameters", "description", "status", "version_realization_info"]]
     df.to_csv("FPS-URB-RCC_STAGE-0_WRF_experiment_design.csv")
     
     # And for the standard FPS-URB-RCC spreadsheet table:
