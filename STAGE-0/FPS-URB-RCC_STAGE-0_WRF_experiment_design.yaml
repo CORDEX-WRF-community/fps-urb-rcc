@@ -92,7 +92,17 @@ simulations:
       Realization r9 is an HPC sensitivity simulation
     description: *ctrl_desc
     institution_id: UCL
-    status: completed
+    status: published
+    parameters: *ctrl_param   
+    parent_id: CTRL
+
+  - simulation_id: CTRL_r10
+    simulation: Control simulation, realization 10 performed on xxx HPC
+    version_realization_info: >
+      Realization r9 is an HPC sensitivity simulation
+    description: *ctrl_desc
+    institution_id: UM
+    status: running
     parameters: *ctrl_param   
     parent_id: CTRL
 
@@ -189,10 +199,26 @@ simulations:
     description: >
       As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL
     institution_id: UCL
-    status: completed
+    status: published
     parameters:
-    parent_id: CTRL_r9
-        
+    parent_id: CTRL_r9  
+
+  - simulation_id: CONV
+    simulation: New Grell convection scheme (G3)  
+    description: As CTRL, but with the New Grell convection scheme (G3)  
+    institution_id: UM
+    status: running
+    parameters:
+      cu_physics: 5     
+    parent_id: CTRL_r10
+
+  - simulation_id: CHEM
+    simulation: Chemical transport model (WRF-CHEM) switched on
+    description: As CTRL, but with chemical transport model (WRF-CHEM) on
+    institution_id: UM
+    status: running
+    parameters:
+    parent_id: CTRL_r10
 
   - simulation_id: SFAE
     simulation: Janjic MO surface layer and no aerosol climatology data
@@ -241,14 +267,6 @@ simulations:
     status: published
     parameters:
       aer_opt: 0
-    parent_id: CTRL
-
-  - simulation_id: CHEM
-    simulation: Chemical transport model (WRF-CHEM) switched on
-    description: As CTRL, but with chemical transport model (WRF-CHEM) on
-    institution_id: UM
-    status: running
-    parameters:
     parent_id: CTRL
 
   - simulation_id: MICR
