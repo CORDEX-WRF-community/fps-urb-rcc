@@ -218,7 +218,7 @@ simulations:
     institution_id: UM
     status: running
     parameters:
-    parent_id: CTRL_r10
+    parent_id: CONV
 
   - simulation_id: SFAE
     simulation: Janjic MO surface layer and no aerosol climatology data
