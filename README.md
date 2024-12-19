@@ -22,4 +22,5 @@ where `run/URBPARM_LCZ.TBL` is to be replaced by the file [URBPARM_LCZ-Madrid.TB
 | [Test-7d](./Test-7d) 		| 7-day test simulation for STAGE-0. |
 | [STAGE-0](./STAGE-0) 		| STAGE-0 configuration files and description. |
 | [urbanModule](./urbanModule) 		| Modules and files to output the specific urban variables |
+| [data request](https://github.com/impetus4change/T32-CPRCM/blob/main/data-request-fpsurbrcc.csv) | List of the requested variables |
 
