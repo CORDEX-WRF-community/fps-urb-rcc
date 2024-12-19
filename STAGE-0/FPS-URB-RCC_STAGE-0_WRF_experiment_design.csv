@@ -19,7 +19,6 @@ CTRL_r9,CTRL,"Control simulation, realization 9 performed on xxx HPC",UCL,"{'sf_
 CTRL_r10,CTRL,"Control simulation, realization 10 performed on xxx HPC",UM,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}",EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid,running,"Realization r9 is an HPC sensitivity simulation
 "
 URB0,CTRL_r3,"No urban parameterization, but with urban category in LU data",CYI,{'sf_urban_physics': 0},"As CTRL run, but urban model sitched off",published,
-PBL5,CTRL_r5,MYNN 2.5 PBL scheme,IDL-FCUL,{'bl_pbl_physics': 5},"As CTRL, but with MYNN 2.5 PBL scheme",completed,
 PBL1,CTRL_r5,YSU PBL scheme,IDL-FCUL,{'bl_pbl_physics': 1},"As CTRL, but with YSU PBL scheme",published,
 NOUR,CTRL_r6,No urban areas,IPSL,,"As CTRL, but without urban category in LU static data, cities replaced  with nearest neighbour LU categories using w2w.py",published,
 COLC,DPAR,Corine land cover,UCAN,,"As DPAR, but with the default CORINE land-use data",published,

@@ -115,16 +115,6 @@ simulations:
       sf_urban_physics: 0
     parent_id: CTRL_r3
 
-  - simulation_id: PBL5
-    simulation: MYNN 2.5 PBL scheme
-    description: >
-      As CTRL, but with MYNN 2.5 PBL scheme
-    institution_id: IDL-FCUL
-    status: completed
-    parameters:
-      bl_pbl_physics: 5
-    parent_id: CTRL_r5
-
   - simulation_id: PBL1
     simulation: YSU PBL scheme
     description: >

@@ -10,7 +10,6 @@ WRF451R-CTRL,v1-fpsurbrcc-s0r8,UCAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZs
 WRF451R-CTRL,v1-fpsurbrcc-s0r9,UCL,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r10,UM,running,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-URB0,v1-fpsurbrcc-s0r1,CYI,published,"As CTRL run, but urban model sitched off"
-WRF451R-PBL5,v1-fpsurbrcc-s0r1,IDL-FCUL,completed,"As CTRL, but with MYNN 2.5 PBL scheme"
 WRF451R-PBL1,v1-fpsurbrcc-s0r1,IDL-FCUL,published,"As CTRL, but with YSU PBL scheme"
 WRF451R-NOUR,v1-fpsurbrcc-s0r1,IPSL,published,"As CTRL, but without urban category in LU static data, cities replaced  with nearest neighbour LU categories using w2w.py"
 WRF451R-COLC,v1-fpsurbrcc-s0r1,UCAN,published,"As DPAR, but with the default CORINE land-use data"
