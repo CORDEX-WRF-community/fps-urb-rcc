@@ -16,7 +16,7 @@ CTRL_r8,CTRL,"Control simulation, realization 8",UCAN,"{'sf_sfclay_physics': 1, 
 "
 CTRL_r9,CTRL,"Control simulation, realization 9 performed on xxx HPC",UCL,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}",EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid,published,"Realization r9 is an HPC sensitivity simulation
 "
-CTRL_r10,CTRL,"Control simulation, realization 10 performed on xxx HPC",UM,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}",EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid,running,"Realization r9 is an HPC sensitivity simulation
+CTRL_r10,CTRL,"Control simulation, realization 10 performed on xxx HPC",UM,"{'sf_sfclay_physics': 1, 'sf_urban_physics': 3, 'bl_pbl_physics': 8, 'mp_physics': 8, 'e_vert': 60}",EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid,completed,"Realization r9 is an HPC sensitivity simulation
 "
 URB0,CTRL_r3,"No urban parameterization, but with urban category in LU data",CYI,{'sf_urban_physics': 0},"As CTRL run, but urban model sitched off",published,
 PBL1,CTRL_r5,YSU PBL scheme,IDL-FCUL,{'bl_pbl_physics': 1},"As CTRL, but with YSU PBL scheme",published,
@@ -28,7 +28,7 @@ DPAR_r2,DPAR,"DPAR simulation, realization 2",UCAN,,"As CTRL, but with default u
 ALPX,CTRL_r7,Extended convection-permitting domain (I4C ALPX-3),UCAN,,"As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)",published,
 CI4C,ALPX,Full configuration from I4C,UCAN,"{'sf_urban_physics': 1, 'bl_pbl_physics': 8, 'e_vert': 54}","As ALPX, but with the exact WRF configuration used in I4C",published,
 NOAC,CTRL_r9,No AC in URB3 model,UCL,,"As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL",published,
-CONV,CTRL_r10,New Grell convection scheme (G3),UM,{'cu_physics': 5},"As CTRL, but with the New Grell convection scheme (G3)",running,
+CONV,CTRL_r10,New Grell convection scheme (G3),UM,{'cu_physics': 5},"As CTRL, but with the New Grell convection scheme (G3)",completed,
 CHEM,CONV,Chemical transport model (WRF-CHEM) switched on,UM,,"As CTRL, but with chemical transport model (WRF-CHEM) on",running,
 SFAE,SFL2,Janjic MO surface layer and no aerosol climatology data,CUNI,"{'sf_sfclay_physics': 2, 'aer_opt': 0}","As SFL2, but without aerosols",published,
 SFU1,SFL2,SLUCM model,CUNI,"{'sf_sfclay_physics': 2, 'sf_urban_physics': 1}","As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2",published,

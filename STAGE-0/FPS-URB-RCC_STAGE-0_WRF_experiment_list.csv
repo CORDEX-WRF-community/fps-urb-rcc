@@ -8,7 +8,7 @@ WRF451R-CTRL,v1-fpsurbrcc-s0r6,IPSL,published,EUR-12->PAR-3 nesting; WUDAPT LCZs
 WRF451R-CTRL,v1-fpsurbrcc-s0r7,UCAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r8,UCAN,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-CTRL,v1-fpsurbrcc-s0r9,UCL,published,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
-WRF451R-CTRL,v1-fpsurbrcc-s0r10,UM,running,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
+WRF451R-CTRL,v1-fpsurbrcc-s0r10,UM,completed,EUR-12->PAR-3 nesting; WUDAPT LCZs on LANDMATE_PFT; BEP-BEM with URBAN parameters for Madrid
 WRF451R-URB0,v1-fpsurbrcc-s0r1,CYI,published,"As CTRL run, but urban model sitched off"
 WRF451R-PBL1,v1-fpsurbrcc-s0r1,IDL-FCUL,published,"As CTRL, but with YSU PBL scheme"
 WRF451R-NOUR,v1-fpsurbrcc-s0r1,IPSL,published,"As CTRL, but without urban category in LU static data, cities replaced  with nearest neighbour LU categories using w2w.py"
@@ -18,7 +18,7 @@ WRF451R-DPAR,v1-fpsurbrcc-s0r2,UCAN,published,"As CTRL, but with default urban p
 WRF451R-ALPX,v1-fpsurbrcc-s0r1,UCAN,published,"As CTRL, but with the extended convection-permitting domain (I4C ALPX-3)"
 WRF451R-CI4C,v1-fpsurbrcc-s0r1,UCAN,published,"As ALPX, but with the exact WRF configuration used in I4C"
 WRF451R-NOAC,v1-fpsurbrcc-s0r1,UCL,published,"As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL"
-WRF451R-CONV,v1-fpsurbrcc-s0r1,UM,running,"As CTRL, but with the New Grell convection scheme (G3)"
+WRF451R-CONV,v1-fpsurbrcc-s0r1,UM,completed,"As CTRL, but with the New Grell convection scheme (G3)"
 WRF451R-CHEM,v1-fpsurbrcc-s0r1,UM,running,"As CTRL, but with chemical transport model (WRF-CHEM) on"
 WRF451R-SFAE,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2, but without aerosols"
 WRF451R-SFU1,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2"

@@ -102,7 +102,7 @@ simulations:
       Realization r9 is an HPC sensitivity simulation
     description: *ctrl_desc
     institution_id: UM
-    status: running
+    status: completed
     parameters: *ctrl_param   
     parent_id: CTRL
 
@@ -197,7 +197,7 @@ simulations:
     simulation: New Grell convection scheme (G3)  
     description: As CTRL, but with the New Grell convection scheme (G3)  
     institution_id: UM
-    status: running
+    status: completed
     parameters:
       cu_physics: 5     
     parent_id: CTRL_r10
