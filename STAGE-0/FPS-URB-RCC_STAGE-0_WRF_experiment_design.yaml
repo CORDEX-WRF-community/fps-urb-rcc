@@ -102,7 +102,7 @@ simulations:
       Realization r9 is an HPC sensitivity simulation
     description: *ctrl_desc
     institution_id: UM
-    status: completed
+    status: published
     parameters: *ctrl_param   
     parent_id: CTRL
 
@@ -193,6 +193,14 @@ simulations:
     parameters:
     parent_id: CTRL_r9  
 
+  - simulation_id: CHEM
+    simulation: Chemical transport model (WRF-CHEM) switched on
+    description: As CTRL, but with chemical transport model (WRF-CHEM) on
+    institution_id: UM
+    status: published
+    parameters:
+    parent_id: CONV
+
   - simulation_id: CONV
     simulation: New Grell convection scheme (G3)  
     description: As CTRL, but with the New Grell convection scheme (G3)  
@@ -202,13 +210,13 @@ simulations:
       cu_physics: 5     
     parent_id: CTRL_r10
 
-  - simulation_id: CHEM
-    simulation: Chemical transport model (WRF-CHEM) switched on
-    description: As CTRL, but with chemical transport model (WRF-CHEM) on
+  - simulation_id: CGLC
+    simulation: CGLC land cover data
+    description: As CTRL, different geo_em files with CGLC land cover map
     institution_id: UM
-    status: running
+    status: published
     parameters:
-    parent_id: CONV
+    parent_id: CTRL_r10
 
   - simulation_id: SFAE
     simulation: Janjic MO surface layer and no aerosol climatology data
