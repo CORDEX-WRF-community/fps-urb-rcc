@@ -205,7 +205,7 @@ simulations:
     simulation: New Grell convection scheme (G3)  
     description: As CTRL, but with the New Grell convection scheme (G3)  
     institution_id: UM
-    status: completed
+    status: published
     parameters:
       cu_physics: 5     
     parent_id: CTRL_r10

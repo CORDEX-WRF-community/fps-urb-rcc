@@ -19,7 +19,7 @@ WRF451R-ALPX,v1-fpsurbrcc-s0r1,UCAN,published,"As CTRL, but with the extended co
 WRF451R-CI4C,v1-fpsurbrcc-s0r1,UCAN,published,"As ALPX, but with the exact WRF configuration used in I4C"
 WRF451R-NOAC,v1-fpsurbrcc-s0r1,UCL,published,"As CTRL, but with SW_COND=0 (OFF) in URBPARM_LCZ.TBL"
 WRF451R-CHEM,v1-fpsurbrcc-s0r1,UM,published,"As CTRL, but with chemical transport model (WRF-CHEM) on"
-WRF451R-CONV,v1-fpsurbrcc-s0r1,UM,completed,"As CTRL, but with the New Grell convection scheme (G3)"
+WRF451R-CONV,v1-fpsurbrcc-s0r1,UM,published,"As CTRL, but with the New Grell convection scheme (G3)"
 WRF451R-CGLC,v1-fpsurbrcc-s0r1,UM,published,"As CTRL, different geo_em files with CGLC land cover map"
 WRF451R-SFAE,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2, but without aerosols"
 WRF451R-SFU1,v1-fpsurbrcc-s0r1,CUNI,published,"As SFL2 run, but with SLUCM urban model, dzbot=60, TS_SCHEME=2"
