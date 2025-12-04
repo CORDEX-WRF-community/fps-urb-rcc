@@ -275,6 +275,17 @@ simulations:
     parameters:
       mp_physics: 52
     parent_id: CTRL
+ 
+  - simulation_id: DRNO
+    simulation: Daily reinitialization
+    description: As CTRL run, but with daily reinitialization, no urban canopy model, no aerosols, Janjic MO scheme
+    institution_id: TUB
+    status: published
+    parameters:
+      sf_urban_physics: 0
+      sf_sfclay_physics: 2
+      aer_opt: 0
+    parent_id: CTRL
     
   - simulation_id: URB2
     simulation: BEP model
@@ -284,3 +295,5 @@ simulations:
     parameters:
       sf_urban_physics: 2
     parent_id: CTRL_r2
+    
+
